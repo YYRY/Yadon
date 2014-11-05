@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 ?>
-		<!-- メインコンテンツ -->
+		<!-- メインコンテンツaaa -->
 		<article class="main-contents">
 			<!-- メインビジュアル -->
 			<article class="main-visual">
