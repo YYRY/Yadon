@@ -1,50 +1,52 @@
 <?php
+	
+	$movie_id = $_GET["movie_id"];
+
+	$host_name = "localhost";
+	$dbms_user = "root";
+	$dbms_pass = "";
+
+	//DBMS(MySQL)へ接続
+	$con = mysql_connect($host_name,$dbms_user,$dbms_pass);
+	mysql_select_db("iw32",$con);
+
+	//sql文作成
+	$sql = "SELECT s.movie_id ,title, description ,s.movie_start ,m.3d FROM movie_m AS m JOIN schedule AS s ON m.movie_id = s.movie_id WHERE m.movie_id = '$movie_id'";
+
+	//sql実行
+	$res = mysql_query($sql , $con);
+
+	//DB切断
+	mysql_close($con);
+
+?>
+<?php
 include('../header.php');
 ?>
-	<div id="main">
-		<div id="main_img">
-			<img src="../../../映画情報/1.jpg" width="300px" height="150px">
-		</div>
-
-		<div id="main_text">
-		ノア　約束の舟<br />
-		<p>
-			ある夜、ノアは眠りの中で、恐るべき光景を見る。それは、堕落した人間を滅ぼすために、すべてを地上から消し去り、新たな世界を創るという神の宣告だった。大洪水が来ると知ったノアは、家族と共に、罪のない動物たちを守る箱舟を作り始める。やがて大洪水が始まる。空は暗転し激しい豪雨が大地に降り注ぎ、地上の水門が開き水柱が立ち上がる。濁流が地上を覆う中、ノアの家族と動物たちを乗せた箱舟だけが流されていく。閉ざされた箱舟の中で、ノアは神に託された驚くべき使命を打ち明ける。箱舟に乗ったノアの家族の未来とは？ 人類が犯した罪とは？そして世界を新たに創造するという途方もない約束の結末とは──？
-		</p>
-		</div>
-	<div class="clear"></div>
-	</div><!-- main fin -->
-	<div class="clear"></div>
-
-	<div class="full_content">
-   		<div class="menu active">9/1(月)</div>
- 	  		<div class="content">
-   			<div class="drag"><img src="../img/movie/men.png"></div>
-			<div class="drag"><img src="../img/movie/girl.png"></div>
-			<div class="drag"><img src="../img/movie/kuruma.png"></div>  
-   			</div>
-       
-   		<div class="menu">9/2(火)</div>
-   			<div class="content">
-   			ここに内容が入ります。    
-   		</div>
- 
-		<div class="menu">9/3(水)</div>
-		   	<div class="content">
-		   	ここに内容が入ります。    
-		</div>
-   
-		<div class="menu">9/4(木)</div>
-		   	<div class="content">
-		   	ここに内容が入ります。    
-		</div>
-    
-   		<div class="menu">9/5(金)</div>
-   			<div class="content">
-   			ここに内容が入ります。    
-   			</div>
-		</div>
-
+<?php
+	while($row = mysql_fetch_array($res)){
+		if( $row["3d"] ==0){
+			$real = "なし";
+		}else{
+			$real = "あり";
+		}
+		echo "<div id=\"main\">";
+			echo"<div id=\"main_img\">";
+				echo "<img src='../img/moviePhoto/".$row['movie_id'].".jpg'\">";
+			echo "</div>";
+			echo "<div id=\"main_text\">";
+				echo $row["title"];
+				echo "<br>";
+				echo $row["description"];
+			echo "</div>";
+			echo "<div class=\"clear\"></div>";
+			echo "<div class=\"box2_text\">";
+				echo "<div class=\"movieStart\">".$row["movie_start"]."～</div>";
+				echo "3D上映".$real;
+			echo "</div>";
+		echo "</div>";
+			}
+?>
 <?php
 include('../footer.php');
 ?>
