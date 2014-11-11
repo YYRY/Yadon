@@ -1,7 +1,9 @@
 <?php
 	
-	$movie_id = $_GET["movie_id"];
-
+	$movie_id = htmlspecialchars($_GET["movie_id"], ENT_QUOTES);
+	if (!preg_match("/^[0-9]*$/", $movie_id)){
+			header("Location:../index.php");
+		}
 	$host_name = "localhost";
 	$dbms_user = "root";
 	$dbms_pass = "";
