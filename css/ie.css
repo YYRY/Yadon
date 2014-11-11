@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+body > nav > ul {
+	display: table;
+	width: 100%;
+}
+body > nav > ul > li {
+	display: table-cell;
+}

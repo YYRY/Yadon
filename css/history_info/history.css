@@ -1,0 +1,34 @@
+@charset "utf-8";
+li{
+	list-style: none;
+}
+.cont{
+	width: 460px;
+	padding: 16px;
+	float: left;
+	line-height: 1.6em;
+}
+.his_ta{
+	width: 720px;
+	border-top: solid 1px black;
+	border-left: solid 1px black;
+	border-collapse:collapse;
+	margin: 6px;
+	padding:6px; 
+}
+.his_ta th{
+	border-right: solid 1px black;
+	border-bottom: solid 1px black;
+	width:120px;
+	padding: 8px;
+}
+.his_ta td{
+	border-right: solid 1px black;
+	border-bottom: solid 1px black;
+	width:120px;
+	padding: 8px;
+}
+#buy_naka{
+	overflow: scroll;
+	height: 300px;
+}

@@ -1,0 +1,173 @@
+@charset "utf-8";
+@import url("html5reset-1.6.1.css");
+
+html {
+	font-family: Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+	font-size: 16px;
+	line-height: 1.8;
+	background-image: url("../img/background.png"), url("../img/background2.png"), url("../img/background3.png");
+	background-repeat: repeat, no-repeat, no-repeat;
+	background-position: top left, bottom right, bottom left;
+/*	background-color: #eeeeee;*/
+}
+body {
+	max-width: 960px;
+	margin: 0 auto;
+}
+section {
+	margin: 10px;
+	padding: 15px;
+	border-radius: 10px;
+	background-color: #cccccc;
+}
+
+article > h2 {
+	margin: 15px 0;
+	font-size: 1.5em;
+}
+section > h3 {
+	margin: 0 0 15px;
+	font-size: 1.2em;
+}
+
+
+/*============================================================================*/
+/* ヘッダー                                                                   */
+/*============================================================================*/
+body > header {
+	display: flex;
+	flex-flow: column wrap;
+	height: 150px;
+	color: rgba(255, 255, 255, .8);
+	background-color: rgba(0, 0, 0, .4);
+}
+body > header > h1 {
+	flex: 0 0 150px;
+	width: 244px;
+}
+body > header > p {
+	flex: 1 1 auto;
+	padding: 1em 0;
+}
+body > header > ul {
+	flex: 1 0 50px;
+	list-style-type: none;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-end;
+}
+body > header > ul > li {
+	flex: 0 0 50px;
+	margin-right: 15px;
+}
+body > header > ul > li:last-child {
+	margin-right: 0;
+}
+
+
+/*============================================================================*/
+/* グローバルナビゲーション                                                   */
+/*============================================================================*/
+body > nav {
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: rgba(255, 255, 255, .8);
+	background-color: rgba(0, 0, 0, .4);
+}
+body > nav > ul {
+	display: flex;
+	height: 100%;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+}
+body > nav > ul > li {
+	-ms-flex: 0 1 calc(100% / 6);			/* メニューは6つのため、100% / 6 */
+	flex: 0 1 calc(100% / 6);				/* メニューは6つのため、100% / 6 */
+	transition-property: opacity;
+	transition-duration: .5s;
+}
+body > nav > ul > li:hover {
+	opacity: .5;
+}
+body > nav > ul > li > a {
+	display: block;
+	color: inherit;
+	text-decoration: none;
+}
+
+
+/*============================================================================*/
+/* メインコンテンツ                                                           */
+/*============================================================================*/
+.main-contents {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	color: rgba(0, 0, 0, .8);
+	background-color: rgba(204, 204, 204, .4);
+}
+.main-contents article {
+}
+.main-contents aside {
+}
+.main-contents section {
+	background-color: rgba(255, 255, 255, 1);
+}
+
+
+/*============================================================================*/
+/* フッター                                                                   */
+/*============================================================================*/
+body > footer {
+	display: flex;
+	flex-flow: row wrap;
+	margin-top: 30px;
+	color: rgba(255, 255, 255, .8);
+	background-color: rgba(0, 0, 0, .4);
+}
+body > footer > section {
+	flex: 1 1 calc(100% / 3);
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+}
+body > footer > section > h3 {
+	margin: 15px;
+	font-size: 1em;
+	color: rgba(255, 204, 0, .8);
+}
+body > footer > section > ul {
+	list-style-type: none;
+	margin: 0 30px;
+	font-size: .9em;
+}
+body > footer > section > ul > li {
+	margin-bottom: 5px;
+}
+body > footer > section > ul > li > a {
+	text-decoration: none;
+
+}
+body > footer > section > ul > li > a:link {
+	color: rgba(255, 255, 0, .8);
+}
+body > footer > section > ul > li > a:visited {
+	color: rgba(204, 204, 0, 1);
+}
+body > footer > section > ul > li > a:hover, body > footer > section > ul > li > a:active {
+	color: rgba(255, 255, 0, .8);
+	text-shadow: 1px 1px 10px rgba(204, 204, 0, .4)
+		, -1px 1px 10px rgba(204, 204, 0, .4)
+		, -1px -1px 10px rgba(204, 204, 0, .4)
+		, 1px -1px 10px rgba(204, 204, 0, .4);
+}
+
+body > footer > p {
+	flex: 0 0 100%;
+	margin: 30px 0 15px;
+	font-size: .8em;
+	text-align: center;
+}
