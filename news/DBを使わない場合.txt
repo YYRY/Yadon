@@ -1,0 +1,173 @@
+DBを使わない場合のニュースページのソース
+
+
+
+
+       <!--ニュース開始-->
+        <div class="NEWS">
+        	<!--ニュース画像-->
+            <div class="New_img">
+	            <img src="../img/news/news5.png" width="299px" height="180px" alt="ポップコーン&ドリンク">
+            </div>
+            <!--ニュース内要-->
+            <div class="New_contents">
+            	<span class="New_title">HALシネマカフェにてセットメニュー販売開始</span>
+                <span class="New_day">2014年7月25日</span>
+        	    <p>
+                    HALシネマ内のカフェにてセットメニューの販売が開始！<br /><br />
+                    
+                    ポップコーン・ドリンク・ビールのセットが出来ました。<br />
+                    単品で購入する場合よりお安くなるので複数購入する場合はぜひご利用ください！<br />
+                    ペアシート等で複数人での鑑賞の際にもオススメです。<br /><br />
+                    
+                    
+                    【ポップコーン塩セット】<br />
+                    　ペア(ポップコーンL×1＋ドリンクM×2)　：　900円<br />
+                    　ドリンクMセット　　　　　　　　　　　　　　　 ：　500円<br />
+                    　ビールセット　　　　　　　　　　　　　　　　　：　760円<br />
+                    【ポップコーンキャラメルセット】<br />
+                    　ペア(ポップコーンL×1＋ドリンクM×2)　：　1,100円<br />
+                    　ドリンクMセット　　　　　　　　　　　　　　　 ：　600円<br />
+                    　ビールセット　　　　　　　　　　　　　　　　　：　860円<br />
+                    【ポップコーンハーフセット】<br />
+                    　ペア(ポップコーンL×1＋ドリンクM×2)　：　1,050円
+            	</p>
+                <img src="../img/news/detail1.png" width="90px" height="35px" alt="詳細" class="detail">
+            </div>
+        </div>
+        <!--ニュース終了-->
+
+
+
+
+
+        <!--ニュース開始-->
+        <div class="NEWS">
+        	<!--ニュース画像-->
+            <div class="New_img">
+	            <img src="../img/news/news4.png" width="299px" height="180px" alt="GODZILLA">
+            </div>
+            <!--ニュース内要-->
+            <div class="New_contents">
+            	<span class="New_title">売店にてポスター販売中</span>
+                <span class="New_day">2014年7月25日</span>
+        	    <p>
+                    HALシネマにて映画ポスターの販売を開始しました！<br /><br />
+                    
+                    コレクション向きの貴重な海外版劇場用「GODZILLA」オリジナルポスターから、<br />
+                    お手軽なリプリントポスターまで世界各国の映画ポスターを一部取り揃えました！<br />
+                    お店やお部屋のインテリアとしても役立ちます！<br /><br />
+                    
+                    HALシネマでは、公開終了間際の映画から、公開してスグの映画のポスターまで、<br />
+                    公開中の映画1つにつきポスター数種類を取り揃えております。<br />
+                    また、ポスターはHALシネマ内売店（東京・大阪・名古屋）にて販売しております。<br /><br />
+                    
+                    ■HALシネマでの映画ポスター<br />
+                    販売価格：1,000円（税込み）<br /><br />
+                    
+					※一部劇場では取扱いがない場合があります。 <br />
+                    ※数量には限りがありますので、お早めにお買い求め下さい。 <br />
+                    ※実際のポスターとは異なって見える場合がございます。 
+            	</p>
+                <img src="../img/news/detail1.png" width="90px" height="35px" alt="詳細" class="detail">
+            </div>
+        </div>
+        <!--ニュース終了-->
+
+
+
+        <!--ニュース開始-->
+        <div class="NEWS">
+        	<!--ニュース画像-->
+            <div class="New_img">
+	            <img src="../img/news/news3.png" width="299px" height="180px" alt="ニュース画像">
+            </div>
+            <!--ニュース内要-->
+            <div class="New_contents">
+            	<span class="New_title">HALシネマ限定グッズ販売中</span>
+                <span class="New_day">2014年7月19日</span>
+        	    <p>
+                    思い出のマーニー公開にあわせてHALシネマ限定のグッズを発売開始！<br /><br />
+                    
+                    劇中に出てくるマーニーの日記型の小物入れです。<br />
+					L版の写真が入る使いやすいサイズです。<br /><br /><br />
+                    
+                    【製品概要】<br />
+                    販売価格：2,700円（税込み）<br />
+                    紙製<br />
+                    約11.5×15×4ｃｍ <br />
+                    日本製<br /><br />
+                    
+                    上記のグッズ以外にも、上映中映画の関連グッズを多数取り揃えております。
+            	</p>
+                <img src="../img/news/detail1.png" width="90px" height="35px" alt="詳細" class="detail">
+            </div>
+        </div>
+        <!--ニュース終了-->
+
+
+
+
+        <!--ニュース開始-->
+        <div class="NEWS">
+        	<!--ニュース画像-->
+            <div class="New_img">
+	            <img src="../img/news/news2.png" width="299px" height="180px" alt="QRチケットサービス">
+            </div>
+            <!--ニュース内要-->
+            <div class="New_contents">
+            	<span class="New_title">QRチケットサービス開始</span>
+                <span class="New_day">2014年7月18日</span>
+        	    <p>
+					QRコードを使ったチケット販売サービスが開始しました！<br /><br />
+                    
+					映画予約後に当サイトから送られてくるQRコードが添付されたメールを、<br />
+                    映画館スタッフに見せてチケットの代わりに入場できるシステムです！<br />
+                    ※紙媒体でのチケット入場も行っています。<br /><br />
+                    
+                    【QRチケットサービスご利用方法】<br />
+                    携帯電話又はスマートフォンのメールアドレスを登録。<br />
+                    予約後にメールで送られてきたQRコードを保管していただき、映画館で見せるだけ！<br />
+                    一度使用したQRコードの情報は鑑賞時間後に削除されます。<br /><br />
+                    
+                    ※複数人予約する場合、人数分のQRコードがメールで送られます。<br />
+                    ※鑑賞当日QRコードを持ってこれない場合、身分を証明するもので入場が出来ます。<br />
+                    ※サービスは無料です（映画鑑賞代金は別途）。<br />
+            	</p>
+                <img src="../img/news/detail1.png" width="90px" height="35px" alt="詳細" class="detail">
+            </div>
+        </div>
+        <!--ニュース終了-->
+
+
+        <!--ニュース開始-->
+        <div class="NEWS">
+        	<!--ニュース画像-->
+            <div class="New_img">
+	            <img src="../img/news/news1.png" width="299px" height="180px" alt="HALシネマ">
+            </div>
+            <!--ニュース内要-->
+            <div class="New_contents">
+            	<span class="New_title">HALシネマ WEBサイトオープン！</span>
+                <span class="New_day">2014年7月18日</span>
+        	    <p>
+					HALシネマが東京、大阪、名古屋の大型ショッピングセンター内でオープン！<br /><br />
+                    
+                    当サイトでは、HALシネマのチケットの予約や最新情報などを届けるサイトです。<br />
+                    QRコードを使ったチケット販売など様々なサービスも充実しています！<br /><br />
+                    
+                    【映画鑑賞基本料金】<br />
+                    基本料金　　　　　　：　1,800円<br />
+                    子供（高校生以下）：　1,500円<br />
+                    ペアシート　　　　　：　4,000円<br /><br />
+                    
+                    【問い合わせ先】<br />
+                    〒160-0023　東京都新宿区西新宿1-7-3<br />
+                    TEL : 00-1111-2222<br />
+            	</p>
+                <img src="../img/news/detail1.png" width="90px" height="35px" alt="詳細" class="detail">
+            </div>
+        </div>
+        <!--ニュース終了-->
+
+

@@ -84,7 +84,7 @@ if( isset( $_POST["mail"] ) ){
 		//本文格納
 		$body = "
 		  HALシネマの会員登録です。\n
-		  会員情報登録に進むため、リンク先をクリックして下さい：<http://localhost/IW32/front/reserve/insert.php?mail=".$A_mail.">
+		  会員情報登録に進むため、リンク先をクリックして下さい：<http://localhost/IW32/front/regist/nonregist/insert.php?mail=".$A_mail.">
 		";// <>で囲むとリンクと認識される
 
 		//メール送信
@@ -112,7 +112,7 @@ include "../../header.php";
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>非会員 映画予約会員登録 メールアドレス</title>
+	<title>非会員 映画予約会員登録</title>
 	<meta charset="utf-8">
 	<meta name="keywords" content="HALシネマ東京"><!-- ＳＥＯ対策　-->
 	<meta name="description" content="HALシネマのサイトです">
@@ -147,9 +147,9 @@ include "../../header.php";
 
     </article>
 
-	<footer>
-		<p><small>Copyright IH12B334	kaito shidara ALLRIGHTS RESERVED.</small>
-		</p>
-	</footer>
+	<?php
+    include '../../footer.php';
+    ?>
+
 </body>
 </html>

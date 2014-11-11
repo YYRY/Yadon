@@ -1,72 +1,143 @@
 <?php
+/*このページ（nonregist）はただの会員登録
+*/
 
 
-//メールが送られたらTRUE
-$flg = false;
 
-/*
-//メールアドレスを取得
+//エラーフラグとメッセージ
+$E_flg = false;
+$mes = "";
+
+//送信情報取得
 if( isset( $_POST["mail"] ) ){
 	$mail = $_POST["mail"];
 
-	//@があるか検索
-	if (strpos($mail, "@") == TRUE) {
-		//@がある
-		$flg = TRUE;
+	//-----メールアドレス-----
+	//何も入力が無かった
+	if($mail == null){
+		$mes = "メールアドレスを入力してください<br /><br />";
+		$Eflg = true;
 	}
+	//全角半角チェック
+	else if(strlen($mail) != mb_strlen($mail)){
+		$mes = "メールアドレスは半角で入力してください<br /><br />";
+		$Eflg = true;
+	}
+	//@マークがあるかチェック
+	else if(!strstr($mail, '@')){
+		$mes = "@マーク以下も入力してください<br /><br />";
+		$Eflg = true;
+	}
+	//問題なくメールアドレスが入力された
+	else{
+
+		/****************************
+		* メールアドレスの暗号化
+		****************************/
+		//暗号化＆復号化キー
+		$key = md5('KQAHGOEUXD');
+		
+		//暗号化モジュール使用開始
+		$td  = mcrypt_module_open('des', '', 'ecb', '');
+		$key = substr($key, 0, mcrypt_enc_get_key_size($td));
+		$iv  = mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
+		
+		//暗号化モジュール初期化
+		if (mcrypt_generic_init($td, $key, $iv) < 0) {
+		  exit('error.');
+		}
+		
+		//データを暗号化（$A_mailが暗号化されたメールアドレス）
+		$A_mail = base64_encode(mcrypt_generic($td, $mail));
+		
+		//暗号化モジュール使用終了
+		mcrypt_generic_deinit($td);
+		mcrypt_module_close($td);
+
+
+		/***************************
+		* メールの送信
+		***************************/
+		//文字コード設定
+		mb_language("Japanese");
+		mb_internal_encoding("UTF-8");
+		
+		//*環境設定*************************************
+		//件名
+		$subject = "HALシネマ 会員登録";
+		//管理人メールアドレス(宛先)
+		$to = $mail;
+		//**********************************************
+
+		//**POSTデータ受け取り**************************
+		//差出人メールアドレス格納
+		$header = "From: fujita1@localhost";
+		
+		//本文格納
+		$body = "
+		  HALシネマの会員登録です。\n
+		  会員情報登録に進むため、リンク先をクリックして下さい：<http://localhost/IW32/front/regist/insert.php?mail=".$A_mail.">
+		";// <>で囲むとリンクと認識される
+
+		//メール送信
+		if(mb_send_mail($to,$subject,$body,$header)){
+		$mes = 
+		  "「".$mail."」宛にメールを送信しました<br />
+		  メール内から会員情報詳細設定ページへ移動できます。<br /><br />
+		";
+		}else{
+			$mes = "メール送信に失敗しました<br /><br />";
+		}
+
+	}
+
+}else{
+	$mail = "no";
 }
-*/
+
+
+//ヘッダー読み込み
+include "../header.php";
 
 ?>
 
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>会員 映画予約フォーム1</title>
+	<title>会員登録</title>
 	<meta charset="utf-8">
 	<meta name="keywords" content="HALシネマ東京"><!-- ＳＥＯ対策　-->
 	<meta name="description" content="HALシネマのサイトです">
-	<meta name="author" content="yosihiro yanuki" />
+	<meta name="author" content="Kaito Shidara" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="Content-Script-Type" content="text/javascript" />
 	<link rel="apple-touch-icon" href="img/icon/" /><!-- スマホで見るなら -->
 
 	<!--  css  -->
-	<link href="../../css/common.css" rel="stylesheet" type="text/css">
-	<link href="../../css/regist/nonregist/regist.css" rel="stylesheet" type="text/css">
-
-	<!--  js  -->
-	<script src="../../js/regist/nonregist/regist.js"></script>
+	<link href="../css/common.css" rel="stylesheet" type="text/css">
+	<link href="../css/regist/nonregist/regist.css" rel="stylesheet" type="text/css">
 
 	</head>
 <body>
-<?php
-include ("../../front/header.php");
-?>
+
 	<article id="REGIST">
     
-    	<h1>映画予約：メールアドレス</h1>
+    	<h1>会員登録</h1>
         <hr color="#eee">
-        <form action="regist_conf.php" method="post">
-        	<label><span id="F_title">メールアドレス</span>
-            <input type="text" name="mail" id="F_form"></label><br />
+        <form action="regist.php" method="post">
 
-            <?php
-			//メールを使う場合に使う処理
-			//メール送信後のメッセージ（PHPでメール送信）
-            if($flg){?>
-				<p>
-                	入力されたアドレス宛てにメールが送られました。<br />
-                	メール内の指示に従ってパスワード登録してください。
-				</p>
-			<?php }?>
+			<p class="red"><?= $mes ?></p>
 
-            <input type="image" src="../../img/regist/nonregist/sousin1.png" alt="送信" id="button">
+        	<label><span class="F_title">メールアドレス</span>
+            <input type="text" name="mail" class="F_form"></label>
+            
+            <input type="image" src="../img/regist/nonregist/kakuninn1.png" alt="送信" id="button">
         </form>
 
     </article>
-<?php
-include ("../../front/footer.php");
-?>
+
+	<?php
+	include '../footer.php';
+	?>
 </body>
 </html>

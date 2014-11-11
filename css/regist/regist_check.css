@@ -8,23 +8,14 @@
 	font-size:14px;
 }
 
-#REGIST h1{
-	font-size:1.4em;
-}
-
-
-#REGIST form{
-	margin-top:30px;
+form{
+	margin-top:20px;
 }
 
 form p{
+	color:red;
 	font-size:0.9em;
 	margin:10px 0 10px 165px;
-}
-
-#REGIST p{
-	line-height:1.5em;
-	letter-spacing:0.04em;
 }
 
 
@@ -44,15 +35,14 @@ form p{
 	letter-spacing:0.06em;
 }
 
-
-
 #REGIST #button{
-	margin:10px 0 10px 398px;
+	margin:10px 0 10px 400px;
 }
 
 
-.red{
-	color:red;
+#REGIST #error{
+	display:none;
+	font-size:1.2em;
+	font-weight:bold;
 }
-
 
