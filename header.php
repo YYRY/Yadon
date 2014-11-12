@@ -34,7 +34,7 @@ $filename = basename($filename, '.php');
 		<!--  js  -->
 		<script src="<?=$root ?>/js/jquery/jquery-2.1.1.min.js"></script>
 		<script src="<?=$root ?>/js/<?=$dir ?><?=$filename ?>.js"></script>
-		<script type="text/javascript" src="/js/menu.js"></script>
+
 		<!-- IE8, 9のHTML5 CSS 3対策 -->
 		<!--[if lt IE 9]>
 			<link rel="stylesheet" href="./css/ie.css">
@@ -50,25 +50,24 @@ $filename = basename($filename, '.php');
 		<!-- ヘッダー -->
 		<header>
 			<h1><img src="<?=$root ?>/img/logo.png" alt="ハルシネマ"></h1>
-			<p>キャッチコピー</p>
 
 			<ul>
-				<li><a href="" title="お問い合わせ"><img src="<?=$root ?>/img/email.png" width="32" height="32" alt="お問い合わせ"></a></li>
-				<li><a href="" title="Q &amp; A"><img src="<?=$root ?>/img/qa.png" width="32" height="32" alt="Q &amp; A"></a></li>
-				<li><a href="" title="サイトマップ"><img src="<?=$root ?>/img/sitemap.png" width="32" height="32" alt="サイトマップ"></a></li>
-				<li><a href="" title="ログイン"><img src="<?=$root ?>/img/login.png" width="32" height="32" alt="ログイン"></a></li>
+				<li><a href="" title="お問い合わせ"><img src="<?=$root ?>/img/icon/お問い合わせ.png" width="50" height="50" alt="お問い合わせ"></a></li>
+				<li><a href="" title="Q &amp; A"><img src="<?=$root ?>/img/icon/Q&A.png" width="50" height="50" alt="Q &amp; A"></a></li>
+				<li><a href="" title="サイトマップ"><img src="<?=$root ?>/img/icon/sitemap.png" width="50" height="50" alt="サイトマップ"></a></li>
+				<li><a href="" title="ログイン"><img src="<?=$root ?>/img/icon/ログイン.png" width="50" height="50" alt="ログイン"></a></li>
 			</ul>
 		</header>
 
 		<!-- ナビゲーション -->
 		<nav>
 			<ul>
-				<li><a href="">上映中作品一覧</a></li>
-				<li><a href="">お知らせ</a></li>
-				<li><a href="">上映予定作品一覧</a></li>
-				<li><a href="">料金</a></li>
-				<li><a href="">割引サービス</a></li>
-				<li><a href="">アクセス方法</a></li>
+<li id="menu1"><a href="" title="お問い合わせ"></a></li>
+				<li id="menu2"><a href="" title="お問い合わせ">お知らせ</a></li>
+				<li id="menu3"><a href="" title="お問い合わせ">上映予定作品一覧</a></li>
+				<li id="menu4"><a href="" title="お問い合わせ">料金</a></li>
+				<li id="menu5"><a href="" title="お問い合わせ">割引サービス</a></li>
+				<li id="menu6"><a href=""title="お問い合わせ">アクセス方法</a></li>
 			</ul>
 		</nav>
 
