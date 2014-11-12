@@ -1,6 +1,8 @@
 <?php
-	
-	$movie_id = htmlspecialchars($_GET["movie_id"], ENT_QUOTES);
+	$movie_id = "1";
+	if(isset($_GET["movie_id"])){
+		$movie_id = htmlspecialchars($_GET["movie_id"], ENT_QUOTES);
+	}
 	if (!preg_match("/^[0-9]*$/", $movie_id)){
 			header("Location:../index.php");
 		}

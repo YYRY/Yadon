@@ -5,10 +5,10 @@ var btn = document.getElementById("button");
 
 //画像の切り替え
 btn.onmouseover = function(){
-	btn.src="../../img/regist/nonregist/kakuninn2.png";
+	btn.src="../../img/regist/nonregist/touroku2.png";
 }
 btn.onmouseout = function(){
-	btn.src="../../img/regist/nonregist/kakuninn1.png";
+	btn.src="../../img/regist/nonregist/touroku1.png";
 }
 
 }
@@ -28,7 +28,7 @@ function check1(){
 	var f1 = f1.value;
 
 	//エラー文章と送信ボタンのid
-	var error = document.getElementById("error2");
+	var error = document.getElementById("error");
 	var btn = document.getElementById("button");
 	
 	//最初のみ入力状態はスルー
@@ -74,7 +74,7 @@ function check2(){
 	var f2 = document.getElementById("f2");
 	var f2 = f2.value;
 
-	var error = document.getElementById("error2");
+	var error = document.getElementById("error");
 	var btn = document.getElementById("button");
 
 	if(f1 != ""){

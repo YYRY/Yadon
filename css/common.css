@@ -5,7 +5,8 @@ html {
 	font-family: Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 	font-size: 16px;
 	line-height: 1.8;
-	background-image: url("../img/background.png"), url("../img/background2.png"), url("../img/background3.png");
+	background-color: #3D3D3D;
+	/*background-image: url("../img/background.png"), url("../img/background2.png"), url("../img/background3.png");*/
 	background-repeat: repeat, no-repeat, no-repeat;
 	background-position: top left, bottom right, bottom left;
 /*	background-color: #eeeeee;*/
@@ -16,8 +17,8 @@ body {
 }
 section {
 	margin: 10px;
-	padding: 15px;
-	border-radius: 10px;
+	padding: 10px;
+	border-radius: 5px;
 	background-color: #cccccc;
 }
 
@@ -37,7 +38,7 @@ section > h3 {
 body > header {
 	display: flex;
 	flex-flow: column wrap;
-	height: 150px;
+	height: 100px;
 	color: rgba(255, 255, 255, .8);
 	background-color: rgba(0, 0, 0, .4);
 }
@@ -50,61 +51,78 @@ body > header > p {
 	padding: 1em 0;
 }
 body > header > ul {
-	flex: 1 0 50px;
+	flex: 1 0 52px;
 	list-style-type: none;
-
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: flex-end;
+	padding-right: 25px;
 }
 body > header > ul > li {
-	flex: 0 0 50px;
-	margin-right: 15px;
+	flex: 0 0 32px;
+	margin: 20px 10px 10px 10px;
 }
 body > header > ul > li:last-child {
 	margin-right: 0;
 }
 
-
 /*============================================================================*/
-/* グローバルナビゲーション                                                   */
+/* ヘッダーsample                                                                   */
 /*============================================================================*/
-body > nav {
-	height: 40px;
-	line-height: 40px;
-	text-align: center;
-	color: rgba(255, 255, 255, .8);
-	background-color: rgba(0, 0, 0, .4);
+body > nav{
+    height: 70px;
 }
-body > nav > ul {
-	display: flex;
+body > nav > ul{
+    list-style: none; /* リスト形式を削除 */
+    	display: flex;
 	height: 100%;
 	flex-flow: row wrap;
 	justify-content: flex-start;
 	align-items: stretch;
 	align-content: stretch;
 }
-body > nav > ul > li {
-	-ms-flex: 0 1 calc(100% / 6);			/* メニューは6つのため、100% / 6 */
-	flex: 0 1 calc(100% / 6);				/* メニューは6つのため、100% / 6 */
-	transition-property: opacity;
-	transition-duration: .5s;
+
+ /* リストを横並びに */
+body > nav > ul  >li{
+    width: 100px;
+    height: 40px;
+    float: left;
+    -ms-flex: 0 1 calc(100% / 6);			/* メニューは6つのため、100% / 6 */
+	flex: 0 1 calc(100% / 6);
 }
-body > nav > ul > li:hover {
-	opacity: .5;
+body > nav > ul > li > a{
+    text-indent: -9999px; /* テキストをふっとばす */ 
+    text-decoration: none;  
+    display: block;  
+    width: 160px;  
+    height: 70px;  
+    background-image: url("../img/globalnav.png");  
+    background-repeat: no-repeat;  
 }
-body > nav > ul > li > a {
-	display: block;
-	color: inherit;
-	text-decoration: none;
+/*hover時の指定*/
+body > nav > ul > li > a:hover{
+    text-indent: -9999px; /* テキストをふっとばす */ 
+    text-decoration: none;  
+    display: block;  
+    width: 160px;  
+    height: 70px;  
+    background-image: url("../img/globalnav_hover.png");  
+    background-repeat: no-repeat;
+    color:#fff;  
 }
 
+ /* a要素の背景の指定  ※左の数字がx軸、右の数字がy軸*/
+body > nav > ul li#menu1 a { background-position: 0 0; }   
+body > nav > ul li#menu2 a { background-position: -160px 0px; }  
+body > nav > ul li#menu3 a { background-position: -320px 0px; }  
+body > nav > ul li#menu4 a { background-position: -480px 0px; }  
+body > nav > ul li#menu5 a { background-position: -640px 0px; }
+body > nav > ul li#menu6 a { background-position: -800px 0px; }
 
 /*============================================================================*/
 /* メインコンテンツ                                                           */
 /*============================================================================*/
 .main-contents {
-	margin-top: 30px;
 	margin-bottom: 30px;
 	color: rgba(0, 0, 0, .8);
 	background-color: rgba(204, 204, 204, .4);
@@ -115,6 +133,16 @@ body > nav > ul > li > a {
 }
 .main-contents section {
 	background-color: rgba(255, 255, 255, 1);
+}
+.main-contents article > h1, .main-contents article > h2, .main-contents article > h3, .main-contents article > h4, .main-contents article > h5, .main-contents article > h6
+, .main-contents aside > h1, .main-contents aside > h2, .main-contents aside > h3, .main-contents aside > h4, .main-contents aside > h5, .main-contents aside > h6
+, .main-contents section > h1, .main-contents section > h2, .main-contents section > h3, .main-contents section > h4, .main-contents section > h5, .main-contents section > h6
+, .main-contents div > h1, .main-contents div > h2, .main-contents div > h3, .main-contents div > h4, .main-contents div > h5, .main-contents div > h6 {
+	padding: 0 0 5px 5px;
+	border-bottom: 3px solid #000;
+	border-image: url("../img/border.png") 0 0 3 0 / 0 0 3px round;
+	border-bottom: 1px solid #4c89f7;
+	color:#4c89f7;
 }
 
 
@@ -130,6 +158,7 @@ body > footer {
 }
 body > footer > section {
 	flex: 1 1 calc(100% / 3);
+	width: calc(100% / 3);					/* IE用に記述 */
 	margin: 0;
 	padding: 0;
 	background-color: transparent;

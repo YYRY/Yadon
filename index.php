@@ -5,13 +5,14 @@ include 'header.php';
 		<article class="main-contents">
 			<!-- メインビジュアル -->
 			<article class="main-visual">
-				<h2>おすすめ映画</h2>
+
 				<ul>
-					<li><img width="640" height="360" src="" alt="GODZILLA"></li>
-					<li><img width="640" height="360" src="" alt="マレフィセント"></li>
-					<li><img width="640" height="360" src="" alt="ポケモン・ザ・ムービーXY 「破壊の繭とディアンシー」"></li>
-					<li><img width="640" height="360" src="" alt="思い出のマーニー"></li>
-					<li><img width="640" height="360" src="" alt="エイトレンジャー2"></li>
+					<li><img src="img/movie-top/GODZILLA.jpg" width="905" height="500" src="" alt="GODZILLA"></li>
+					<li><img src="img/movie-top/マレフィセント.png" width="905" height="500" src="" alt="マレフィセント"></li>
+					<li><img src="img/movie-top/pokemon.png" width="905" height="500" src="" alt="ポケモン・ザ・ムービーXY 「破壊の繭とディアンシー」"></li>
+					<li><img src="img/movie-top/ma-ni-.png" width="905" height="500" src="" alt="思い出のマーニー"></li>
+					<li><img src="img/movie-top/8ranger.png" width="905" height="500" src="" alt="エイトレンジャー2"></li>
+					
 				</ul>
 			</article>
 
@@ -20,15 +21,15 @@ include 'header.php';
 				<section>
 					<h3>週間ランキング</h3>
 					<dl>
-						<dt>1位</dt>
+						<dt>1</dt>
 						<dd>GODZILLA</dd>
-						<dt>2位</dt>
+						<dt>2</dt>
 						<dd>マレフィセント</dd>
-						<dt>3位</dt>
+						<dt>3</dt>
 						<dd>ポケモン・ザ・ムービーXY 「破壊の繭とディアンシー」</dd>
-						<dt>4位</dt>
+						<dt>4</dt>
 						<dd>思い出のマーニー</dd>
-						<dt>5位</dt>
+						<dt>5</dt>
 						<dd>エイトレンジャー2</dd>
 					</dl>
 				</section>
@@ -86,8 +87,8 @@ include 'header.php';
 
 				<!-- バナー -->
 				<section>
-					<a href=""><img src="" alt="バナー1"></a>
-					<a href=""><img src="" alt="バナー2"></a>
+					<a href=""><img src="img/banner/banner_3D.png" class="banner" alt="バナー1"></a>
+					<a href=""><img src="img/banner/banner_3D.png" class="banner" alt="バナー2"></a>
 				</section>
 			</aside>
 		</article>

@@ -19,7 +19,6 @@
 include('../header.php');
 ?>
 	<div id="main">
-		<div id="leftcolumn">
 <?php
 
 			while($row = mysql_fetch_array($res)){
@@ -47,33 +46,6 @@ include('../header.php');
 			}
 ?>
 		</div><!-- leftcolumn fin-->
-
-		<div id="rightcolumn">
-			<table class="company">
-    				<tbody>
-					<tr>
-				            <th class="arrow_box">お知らせ</div></th>
-				        </tr>
-
-				        <tr>
-				            <th class="arrow_box2">2014-08-00</div></th>
-				            <td>-------------</td>
-				        </tr>
-
-				        <tr>
-				            <th class="arrow_box">2014-08-00</th>
-				            <td>-------------</td>
-				        </tr>
-					
-					<tr>
-				            <th class="arrow_box"></th>
-				            <td></td>
-				        </tr>
-    				</tbody>
-			</table>
-		</div><!-- rightcolumn fin-->
-		<div class="clear"></div>
-
 	</div><!-- main fin -->
 <?php
 include('../footer.php');

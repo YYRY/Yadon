@@ -63,6 +63,10 @@ table.company td {
     padding-left: 20px;
 }
 
+.form_area{
+	text-align:center;;
+}
+
 
 /* --- フォームエリア --- */
 form.contact {
