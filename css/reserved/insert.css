@@ -1,0 +1,49 @@
+#Forms{
+	width:580px;
+	margin:20px auto;
+}
+
+#Form_left{
+	width:290px;
+	background:#eee;
+	float:left;
+}
+
+
+#Form_right{
+	width:290px;
+	background:#ded;
+	float:left;
+}
+
+.F_box{
+	height:35px;
+	padding:30px 0 20px 10px;
+}
+
+.red{
+	font-size:0.9em;
+	color:red;
+}
+
+#Form_left .F_box{
+	height:40px;
+	padding:40px 0 5px 10px;
+}
+
+
+/*テキストボックス用*/
+.text{
+	width:200px;
+	height:25px;
+	font-size:1.1em;
+}
+
+
+.clear{
+	clear:both;
+}
+
+
+
+
