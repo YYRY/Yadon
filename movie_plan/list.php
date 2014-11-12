@@ -2,20 +2,14 @@
 	$host_name = "localhost";
 	$dbms_user = "root";
 	$dbms_pass = "";
-
-	//DBMS(MySQL)へ接続
 	$con = mysql_connect($host_name,$dbms_user,$dbms_pass);
-	mysql_select_db("iw32",$con);
 
-	//sql文作成
+	mysql_select_db("iw32",$con);
 	$sql = "SELECT title, description ,s.movie_id ,s.movie_start ,m.3d FROM movie_m AS m JOIN schedule AS s ON m.movie_id = s.movie_id ORDER BY movie_start DESC";
 
-	//sql実行
 	$res = mysql_query($sql , $con);
-
-	//DB切断
 	mysql_close($con);
-
+	
 ?>
 <?php
 include('../header.php');
