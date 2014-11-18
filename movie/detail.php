@@ -13,14 +13,11 @@
 	//DBMS(MySQL)へ接続
 	$con = mysql_connect($host_name,$dbms_user,$dbms_pass);
 	mysql_select_db("iw32",$con);
-
-	//sql文作成
+	mysql_query('SET NAMES utf8', $con );
 	$sql = "SELECT s.movie_id ,title, description ,s.movie_start ,m.3d FROM movie_m AS m JOIN schedule AS s ON m.movie_id = s.movie_id WHERE m.movie_id = '$movie_id'";
 
-	//sql実行
 	$res = mysql_query($sql , $con);
 
-	//DB切断
 	mysql_close($con);
 
 ?>
@@ -51,6 +48,36 @@ include('../header.php');
 		echo "</div>";
 			}
 ?>
+	<div class="clear"></div>
+
+	<div class="full_content">
+   		<div class="menu active">9/1(月)</div>
+ 	  		<div class="content">
+   			<div class="drag"><img src="../img/movie/men.png"></div>
+			<div class="drag"><img src="../img/movie/girl.png"></div>
+			<div class="drag"><img src="../img/movie/kuruma.png"></div>  
+   			</div>
+       
+   		<div class="menu">9/2(火)</div>
+   			<div class="content">
+   			ここに内容が入ります。    
+   		</div>
+ 
+		<div class="menu">9/3(水)</div>
+		   	<div class="content">
+		   	ここに内容が入ります。    
+		</div>
+   
+		<div class="menu">9/4(木)</div>
+		   	<div class="content">
+		   	ここに内容が入ります。    
+		</div>
+    
+   		<div class="menu">9/5(金)</div>
+   			<div class="content">
+   			ここに内容が入ります。    
+   			</div>
+		</div>
 <?php
 include('../footer.php');
 ?>
