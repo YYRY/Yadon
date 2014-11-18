@@ -46,8 +46,8 @@ $( function() {
 		$visuals.css( {
 			  'display'  : 'none'
 			, 'position' : 'absolute'
-			, 'top'      : 'calc(50% - 360px / 2)'
-			, 'left'     : 'calc(50% - 640px / 2)'
+			, 'top'      : 'calc(36% - 360px / 2)'
+			, 'left'     : 'calc(36% - 640px / 2)'
 		} );
 		
 		

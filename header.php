@@ -17,13 +17,15 @@ $filename = basename($filename, '.php');
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
+
+		<link rel="shortcut icon" href="img/favicon/favicon.png" >
 		<meta charset="utf-8">
 		<!-- SEO対策 -->
 		<meta name="keywords"    content="ハルシネマ東京">
 		<meta name="description" content="ハルシネマのサイトです">
 
 		<!-- ファビコン -->
-		<link rel="icon"                         type="image/png" href="<?=$root ?>/img/icon/apple-touch-icon-precomposed.png">
+		<link rel="icon"                         type="image/png" href="<?=$root ?>/img/icon/favicon.png">
 		<link rel="apple-touch-icon"             type="image/png" href="<?=$root ?>/img/icon/apple-touch-icon-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" type="image/png" href="<?=$root ?>/img/icon/apple-touch-icon-precomposed.png">
 
@@ -44,7 +46,7 @@ $filename = basename($filename, '.php');
 			<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
 		<![endif]-->
 
-		<title>ハルシネマ</title>
+		<title>HAL CINEMAS</title>
 	</head>
 	<body>
 		<!-- ヘッダー -->
