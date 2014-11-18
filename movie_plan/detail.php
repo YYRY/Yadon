@@ -13,8 +13,8 @@
 	//DBMS(MySQL)へ接続
 	$con = mysql_connect($host_name,$dbms_user,$dbms_pass);
 	mysql_select_db("iw32",$con);
-
-	//sql文作成
+	mysql_query('SET NAMES utf8', $con );
+	
 	$sql = "SELECT s.movie_id ,title, description ,s.movie_start ,m.3d FROM movie_m AS m JOIN schedule AS s ON m.movie_id = s.movie_id WHERE m.movie_id = '$movie_id'";
 
 	//sql実行

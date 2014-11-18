@@ -5,6 +5,7 @@
 	$con = mysql_connect($host_name,$dbms_user,$dbms_pass);
 
 	mysql_select_db("iw32",$con);
+	mysql_query('SET NAMES utf8', $con );
 	$sql = "SELECT title, description ,s.movie_id ,s.movie_start ,m.3d FROM movie_m AS m JOIN schedule AS s ON m.movie_id = s.movie_id ORDER BY movie_start DESC";
 
 	$res = mysql_query($sql , $con);
