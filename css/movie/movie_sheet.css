@@ -1,0 +1,30 @@
+﻿#sheet{
+	
+}
+
+
+#sheet td{
+	width:28px;
+	height:20px;
+	padding-top:8px;
+	border:1px solid #fff;
+	font-size:0.6em;
+	background:#ddd;
+	text-align:center;
+}
+
+/*車椅子*/
+#sheet .car{
+	background:#3CC;
+}
+
+/*ペアシート*/
+#sheet .pear{
+	background:#FC3;
+}
+
+/*席がない場所*/
+#sheet .null{
+	background:#fff;
+}
+

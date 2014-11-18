@@ -2,7 +2,7 @@
 //print_r($_SERVER);
 
 // 表示ルートの取得
-$root     = 'http://' . $_SERVER['HTTP_HOST'] . '/IW32/front';
+$root     = 'http://' . $_SERVER['HTTP_HOST'] . '/iw32/Yadon';
 
 // 表示ディレクトリの取得
 $dir      = basename(dirname($_SERVER['SCRIPT_FILENAME'])) . '/';
@@ -51,24 +51,24 @@ $filename = basename($filename, '.php');
 	<body>
 		<!-- ヘッダー -->
 		<header>
-			<h1><img src="<?=$root ?>/img/logo.png" alt="ハルシネマ"></h1>
+			<h1><a href="<?=$root ?>/index.php" title="ロゴ"><img src="<?=$root ?>/img/logo.png" alt="ハルシネマ"></a></h1>
 
 			<ul>
 				<li><a href="" title="お問い合わせ"><img src="<?=$root ?>/img/icon/お問い合わせ.png" width="50" height="50" alt="お問い合わせ"></a></li>
 				<li><a href="" title="Q &amp; A"><img src="<?=$root ?>/img/icon/Q&A.png" width="50" height="50" alt="Q &amp; A"></a></li>
 				<li><a href="" title="サイトマップ"><img src="<?=$root ?>/img/icon/sitemap.png" width="50" height="50" alt="サイトマップ"></a></li>
-				<li><a href="" title="ログイン"><img src="<?=$root ?>/img/icon/ログイン.png" width="50" height="50" alt="ログイン"></a></li>
+				<li><a href="<?=$root ?>/login/login.php" title="ログイン"><img src="<?=$root ?>/img/icon/ログイン.png" width="50" height="50" alt="ログイン"></a></li>
 			</ul>
 		</header>
 
 		<!-- ナビゲーション -->
 		<nav>
 			<ul>
-<li id="menu1"><a href="" title="お問い合わせ"></a></li>
-				<li id="menu2"><a href="" title="お問い合わせ">お知らせ</a></li>
-				<li id="menu3"><a href="" title="お問い合わせ">上映予定作品一覧</a></li>
+<li id="menu1"><a href="<?=$root ?>/movie/list.php" title="上映予定作品一覧">上映予定作品一覧</a></li>
+				<li id="menu2"><a href="<?=$root ?>/movie_plan/list.php" title="上映予定作品一覧">上映予定作品一覧</a></li>
+				<li id="menu3"><a href="<?=$root ?>/movie_plan/list.php" title="お問い合わせ"></a></li>
 				<li id="menu4"><a href="" title="お問い合わせ">料金</a></li>
-				<li id="menu5"><a href="" title="お問い合わせ">割引サービス</a></li>
+				<li id="menu5"><a href="<?=$root ?>/sale/list.php" title="お問い合わせ">割引サービス</a></li>
 				<li id="menu6"><a href=""title="お問い合わせ">アクセス方法</a></li>
 			</ul>
 		</nav>
