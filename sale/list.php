@@ -1,148 +1,27 @@
 <?php
 include('../header.php');
+
+	$host_name = "localhost";
+	$dbms_user = "root";
+	$dbms_pass = "";
+	$con = mysql_connect($host_name,$dbms_user,$dbms_pass);
+
+	mysql_select_db("iw32",$con);
+	$sql = "SELECT service_name ,service_detail FROM discount_m";
+
+	$res = mysql_query($sql , $con);
+	mysql_close($con);
 ?>
 	<a href="#">TOP</a>>割引一覧
 	<div id="main">
 		<div id="leftcolumn">
-			<div class="box_img">
-				<img src="#" width="300px" height="150px">
-			</div>
-
-			<div class="box_img">
-				<img src="#" width="300px" height="150px">
-			</div>
-
-			<div class="box_img">
-				<img src="#" width="300px" height="150px">
-			</div>
-
-			<div class="box_img">
-				<img src="#" width="300px" height="150px">
-			</div>
-
-			<div class="box_img">
-				<img src="#" width="300px" height="150px">
-			</div>
-
-			<div class="box_img">
-				<img src="#" width="300px" height="150px">
-			</div>
-
-			<div class="box_img">
-				<img src="#" width="300px" height="150px">
-			</div>
-
+<?php
+while($row = mysql_fetch_array($res)){
+				echo"<div>".$row['service_name']."</div>";
+				echo "<div>".$row['service_detail']."</div>";
+		}
+?>
 		</div><!-- leftcolumn fin -->
-
-		<div id="rightcolumn">
-			<div class="box_text">
-				<div class="box_hiduke">
-				2014-08-00
-				</div>
-				<div class="box_honbun">
-				本文
-				</div>
-				<div class="box_button">
-				<form>
-				<BUTTON type="submit">詳細</BUTTON>
-				</form>
-				</div>
-			</div>
-
-			<div class="box_text">
-				<div class="box_hiduke">
-				2014-08-00
-				</div>
-				<div class="box_honbun">
-				本文
-				</div>
-				<div class="box_button">
-				<form>
-				<BUTTON type="submit">詳細</BUTTON>
-				</form>
-				</div>
-			</div>
-
-			<div class="box_text">
-				<div class="box_hiduke">
-				2014-08-00
-				</div>
-				<div class="box_honbun">
-				本文
-				</div>
-				<div class="box_button">
-				<form>
-				<BUTTON type="submit">詳細</BUTTON>
-				</form>
-				</div>
-			</div>
-
-			<div class="box_text">
-				<div class="box_hiduke">
-				2014-08-00
-				</div>
-				<div class="box_honbun">
-				本文
-				</div>
-				<div class="box_button">
-				<form>
-				<BUTTON type="submit">詳細</BUTTON>
-				</form>
-				</div>
-			</div>
-
-			<div class="box_text">
-				<div class="box_hiduke">
-				2014-08-00
-				</div>
-				<div class="box_honbun">
-				本文
-				</div>
-				<div class="box_button">
-				<form>
-				<BUTTON type="submit">詳細</BUTTON>
-				</form>
-				</div>
-			</div>
-
-			<div class="box_text">
-				<div class="box_hiduke">
-				2014-08-00
-				</div>
-				<div class="box_honbun">
-				本文
-				</div>
-				<div class="box_button">
-				<form>
-				<BUTTON type="submit">詳細</BUTTON>
-				</form>
-				</div>
-			</div>
-
-			<div class="box_text">
-				<div class="box_hiduke">
-				2014-08-00
-				</div>
-				<div class="box_honbun">
-				本文
-				</div>
-				<div class="box_button">
-				<form>
-				<BUTTON type="submit">詳細</BUTTON>
-				</form>
-				</div>
-			</div>
-
-		</div><!-- rightcolumn fin -->
-	<div class="clear"></div>
-
-	<div id="under_button">
-		<form>
-				<BUTTON type="submit">＜前へ</BUTTON>
-				<BUTTON type="submit">後へ＞</BUTTON>
-		</form>
-	</div>
-
 	</div><!-- main fin -->
 <?php
 include('../footer.php');
