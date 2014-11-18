@@ -114,8 +114,8 @@ $_SESSION["mail"] = $F_mail2;
 	<link rel="apple-touch-icon" href="img/icon/" /><!-- スマホで見るなら -->
 
 	<!--  css  -->
-	<link href="../css/common.css" rel="stylesheet" type="text/css">
-	<link href="../css/reserved/insert.css" rel="stylesheet" type="text/css">
+	<link href="../../css/common.css" rel="stylesheet" type="text/css">
+	<link href="../../css/reserved/insert.css" rel="stylesheet" type="text/css">
 
 	<!--  js  -->
 

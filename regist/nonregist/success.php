@@ -51,7 +51,7 @@ INSERT INTO `iw32`.`customer_m` (
 `registrant_date` 
 )
 VALUES (
- '$yuza_count', NULL , NULL , '$mail', NULL , NULL , '', ''
+ '$yuza_count', NULL , '$pass' , '$mail', NULL , NULL , '', ''
 )";
 $res = mysql_query($sql,$con);
 

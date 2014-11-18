@@ -84,7 +84,7 @@ if( isset( $_POST["mail"] ) ){
 		//本文格納
 		$body = "
 		  HALシネマの会員登録です。\n
-		  会員情報登録に進むため、リンク先をクリックして下さい：<http://localhost/IW32/front/regist/nonregist/insert.php?mail=".$A_mail.">
+		  会員情報登録に進むため、リンク先をクリックして下さい：<http://localhost/iw32/Yadon/regist/nonregist/insert.php?mail=".$A_mail.">
 		";// <>で囲むとリンクと認識される
 
 		//メール送信

@@ -148,7 +148,7 @@ if($flg1){
 
 	<!--  css  -->
 	<link href="../css/common.css" rel="stylesheet" type="text/css">
-	<link href="../css/reserved/insert.css" rel="stylesheet" type="text/css">
+	<link href="../../css/reserved/insert.css" rel="stylesheet" type="text/css">
 
 	<!--  js  -->
 
