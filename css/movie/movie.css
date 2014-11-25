@@ -161,7 +161,7 @@ table.company td {
 .content {
 	float:left;
         width:930px;
-        height:620px;
+/*        height:620px;*/
         border:#6CC 5px solid;
         background:#FFF;
         top:32px;

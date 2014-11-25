@@ -15,6 +15,7 @@
 	<link href="../css/movie/movie_sheet.css" rel="stylesheet" type="text/css">
 	<!--  js  -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/movie/movie.js"></script>
 	<script type="text/javascript">
 	$ (function(){
         $ (".content:not('.active + .content')").hide();       
@@ -32,9 +33,10 @@
         });
 
 	//drag
-	$(".drag").draggable({
+/*	$(".drag").draggable({
 		snap:".snap"
 	});
+*/
 
 });
 	</script>
@@ -96,132 +98,60 @@ include('../header.php');
 	<div class="full_content">
    		<div class="menu active">9/1(月)</div>
  	  	<div class="content">
-   			<div class="drag"><img src="../img/movie/men.png"></div>
+   			<!--<div class="drag"><img src="../img/movie/men.png"></div>
 			<div class="drag"><img src="../img/movie/girl.png"></div>
-			<div class="drag"><img src="../img/movie/kuruma.png"></div>
-
-			<?php
-            //DBMS(MySQL)に接続
-            $con = mysql_connect($host_name , $dbms_user , $dbms_pass);
+			<div class="drag"><img src="../img/movie/kuruma.png"></div>-->
             
-            //文字化けを解消（無理やりなやり方）
-            mysql_query("SET NAMES utf8");
-            
-            //データベースを選択
-            mysql_select_db( "iw32" , $con );
-            ?>
+            <h1>スクリーン1</h1>
 
         	<table id="sheet">
 	        	<tr>
 					<?php
-	                $seat = 1;
+					$con = mysql_connect($host_name , $dbms_user , $dbms_pass);
+					mysql_query("SET NAMES utf8");
+					mysql_select_db( "iw32" , $con );
                     //席の座標を抽出する
                     $sql = "
                     SELECT
                       x
                     , y
+                    , retu
                     , type
-                    , seat_id
-                    FROM seat
-                    WHERE seat_id = ".$seat."
+                    FROM seat2_1
                     ORDER BY y , x";
-                    
+
                     //SQL実行
                     $res = mysql_query( $sql , $con );
                     
-                    //席番号合わせのための変数
+                    //席改行用変数
                     $count = 1;
                     
                     //席の表示
                     while( $row = mysql_fetch_array( $res ) ){
-                    
-                        //ペアシートのとき
-                        if($row[2] == "ペアシート"){
-                            
-                            //改行したらペアシートだったとき
-                            if($count > $row[0]){
-                                //countの値を合わせる
-                                $count = $row[0];
-                                //改行
-                                echo "</tr><tr>";
-                                
-                                //空白を作って席の形を合わせる
-                                for($i=1 ; $count>$i ; $i++){
-                                    echo "<td class='null'></td>";
-                                }
-                            }
-                        
-                            //席の表示
-                            echo "<td colspan=2 class='pear'>" , $row[0] , "</td>";
-                            //ペアシートなので２個分数を取る
-                            $count+=2;
-                        }
-                        //通常の席表示
-                        else if($count == $row[0]){
-                        
-                            //xが1のとき<tr>開始
-                            if($count == 1){
-                                echo "<tr>";
-                            }
-                
-                            //車椅子席の場合のCSS
-                            if($row["2"] == "車椅子"){
-                                echo "<td class='car'>" , $row[0] , "</td>";
-                            }else{
-                                echo "<td>" , $row[0] , "</td>";
-                            }
-                            $count++;
-                        }
-                        //席が3始まり
-                        else if($row[0] == 3){
-                            //車椅子席の場合のCSS
-                            if($row["2"] == "車椅子"){
-                                echo "<tr><td class='null'></td>";
-                                echo "<td class='null'></td>";
-                                echo "<td class='car'>" , $row[0] , "</td>";
-                            }else{
-                                echo "<tr><td class='null'></td>";
-                                echo "<td class='null'></td>";
-                                echo "<td>" , $row[0] , "</td>";
-                            }
-                            $count = 4;
-                        }
-                        //席が5始まり
-                        else if($row[0] == 5){
-                            //車椅子席の場合のCSS
-                            if($row["2"] == "車椅子"){
-                                echo "<tr><td class='null'></td>";
-                                echo "<td class='null'></td>";
-                                echo "<td class='null'></td>";
-                                echo "<td class='null'></td>";
-                                echo "<td class='car'>" , $row[0] ,"</td>";
-                            }else{
-                                echo "<tr><td class='null'></td>";
-                                echo "<td class='null'></td>";
-                                echo "<td class='null'></td>";
-                                echo "<td class='null'></td>";
-                                echo "<td>" , $row[0] ,"</td>";
-                            }
-                            $count = 6;
-                        }
-                        //xが1とかに戻ったとき（改行）
-                        else if($count > $row[0]){
-                            echo "</tr>";
-                            //車椅子席の場合のCSS
-                            if($row["2"] == "車椅子"){
-                                echo "<tr><td class='car'>" , $row[0] , "</td>";
-                            }else{
-                                echo "<tr><td>" , $row[0] , "</td>";
-                            }
-                            $count = 2;
-                        }
-                    }
-
-					//DB接続切断
-					mysql_close( $con );
+					
+						if($row[0]==1 && $count!=1){
+							echo "</tr><tr>";
+						}
+						
+						if($row[3]=="普通席"){
+							echo "<td class='seat1'>".$row[2] ."-". $row[0]."</td>";
+						}
+						else if($row[3]=="車椅子"){
+							echo "<td class='seat2'>".$row[2] ."-". $row[0]."</td>";
+						}
+						else if($row[3]=="ペアシート"){
+							echo "<td class='seat3'>".$row[2] ."-". $row[0]."</td>";
+						}else{
+							echo "<td class='none'></td>";
+						}
+						$count++;
+					}
 					?>
 				</tr>
             </table>
+
+			<div id="yoyaku"></div>
+
 
    		</div>
 
