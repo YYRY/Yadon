@@ -33,12 +33,14 @@ session_start();
 				<li><a href="">ログイン</a></li>
 			</ul>-->
 			<div><a href="user_info/user.html">ユーザ情報</a></div>
-			<div><a href="history_info/history.php">購入履歴</a></div>
 			<div><a href="cregit_info/cregit.php">クレジットカード情報</a></div>
 			<div><a href="mail_info/mail.html">メルマガ登録・変更</a></div>
 		</section>
 		<section class="right-cont">
-			<div>有用情報</div>
+			<div>購入履歴</div>
+			<p>00/00:○○○を購入しました</p>
+			<p>00/00:○○○を購入しました</p>
+			<p>00/00:○○○を購入しました</p>
 		</section>
 		<div class="cl"> </div>
 	</article>

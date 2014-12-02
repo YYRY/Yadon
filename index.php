@@ -1,5 +1,17 @@
 <?php
 include 'header.php';
+include "include_session/session.php";
+
+/**********
+* DB接続
+**********/
+$host_name = "localhost";
+$dbms_user = "root";
+$dbms_pass = "";
+$con = mysql_connect($host_name , $dbms_user , $dbms_pass);
+mysql_query("SET NAMES utf8");
+mysql_select_db( "iw32" , $con );
+
 ?>
 		<!-- メインコンテンツ -->
 		<article class="main-contents">
@@ -37,20 +49,23 @@ include 'header.php';
 				<!-- お知らせ -->
 				<section>
 					<h3>ハルシネマからのお知らせ</h3>
-					<dl>
-						<dt><time datetime="2014-08-01">8月1日</time></dt>
-						<dd>○○について</dd>
-						<dt><time datetime="2014-08-01">8月1日</time></dt>
-						<dd>○○について</dd>
-						<dt><time datetime="2014-08-01">8月1日</time></dt>
-						<dd>○○について</dd>
-						<dt><time datetime="2014-08-01">8月1日</time></dt>
-						<dd>○○について</dd>
-						<dt><time datetime="2014-08-01">8月1日</time></dt>
-						<dd>○○について</dd>
-						<dt><time datetime="2014-08-01">8月1日</time></dt>
-						<dd>○○について</dd>
-					</dl>
+
+                    <dl>
+						<?php
+                        $sql = "SELECT title , registered_date FROM notice ORDER BY notice_id DESC LIMIT 6";
+                        $res = mysql_query( $sql , $con );
+
+                        while( $row = mysql_fetch_array( $res ) ){
+							//文字列 切り出し
+							$day = substr($row[1] , 5 , 5);
+							?>
+                        	<dt><time datetime="<?= $day ?>"><?= $day ?></time></dt>
+                        	<dd><?= $row[0] ?></dd>
+                        <?php }
+                        mysql_close( $con );
+                        ?>
+                    </dl>
+
 				</section>
 			</article>
 

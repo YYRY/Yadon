@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+.Q{
+	width: 900px;
+	height: 140px;
+	background-color: #fff;
+	margin-top: 15px;
+	border-radius: 5px;
+	padding: 10px;
+}
+.A{
+	width: 900px;
+	height: 140px;
+	background-color: #fff;
+	margin-top: 15px;
+	border-radius: 5px;
+	padding: 10px;
+}
+#QA{
+	padding: 10px 20px 10px 20px;
+	margin: 0 auto;
+}
+h2{
+	font-size: 1.3224rem;
+	line-height: 1.8em;
+	font-family: "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;
+	float: left;
+	padding-left: 5px;
+}
+p{
+	font-size: 0.8224rem;
+	line-height: 1.2em;
+	font-family: "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;
+	clear: both;
+	padding-top: 5px;
+}
+.imgbox{
+	border-radius: 50px;
+	background-color: #00f;
+	width: 40px;
+	height: 40px;
+	float: left;
+}

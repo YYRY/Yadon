@@ -2,6 +2,7 @@
 
 //ヘッダー読み込み
 include "../header.php";
+include "../include_session/session.php";
 
 /*------------------------------*
 * ニュース（お知らせ）表示用SQL *

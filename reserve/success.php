@@ -1,5 +1,6 @@
 <?php
 include '../header.php';
+include "../include_session/session.php";
 ?>
 	<style>
 		p{

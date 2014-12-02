@@ -2,7 +2,7 @@ window.onload = function(){
 
 //座席クリック
 $("td").not(".none").click(function(){
-	
+
 	var this_td = $(this);
 	
 	//座席の色を戻す

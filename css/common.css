@@ -10,6 +10,7 @@ html {
 	background-repeat: repeat, no-repeat, no-repeat;
 	background-position: top left, bottom right, bottom left;
 /*	background-color: #eeeeee;*/
+	overflow-y:scroll;
 }
 body {
 	max-width: 960px;

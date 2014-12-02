@@ -6,13 +6,12 @@ $s_flg = false;
 session_start();
 
 //セッションが無い状態
-if( !isset( $_SESSION["s_mail"] ) || $_SESSION["s_mail"] == null ){
+if( !isset( $_SESSION["c_id"] ) || $_SESSION["c_id"] == null ){
 
 }
 //セッションがあった
 else{
-	//セッションにデータを格納
-	$_SESSION["s_mail"] = $_SESSION["s_mail"];
+	$c_id = $_SESSION["c_id"];
 	$s_flg = true;
 }
 ?>

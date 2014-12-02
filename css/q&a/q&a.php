@@ -1,6 +1,5 @@
 <?php
 include('../header.php');
-include "../include_session/session.php";
 
 	$host_name = "localhost";
 	$dbms_user = "root";
@@ -13,17 +12,26 @@ include "../include_session/session.php";
 	$res = mysql_query($sql , $con);
 	mysql_close($con);
 ?>
-	<a href="#">TOP</a>>割引一覧
+
+<body>
+	<a href="<?=$root ?>/index.php">TOP</a>>割引一覧
 	<div id="main">
 		<div id="leftcolumn">
-<?php
+			<div class="Q"></div>
+			<div class="A"></div>
+			<div class="Q"></div>
+			<div class="A"></div>
+			<div class="Q"></div>
+			<div class="A"></div>
+<!--<?php
 while($row = mysql_fetch_array($res)){
 				echo"<div>".$row['service_name']."</div>";
 				echo "<div>".$row['service_detail']."</div>";
 		}
-?>
+?>-->
 		</div><!-- leftcolumn fin -->
 	</div><!-- main fin -->
+<body>
 <?php
 include('../footer.php');
 ?>

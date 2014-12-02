@@ -17,6 +17,7 @@
 ?>
 <?php
 include('../header.php');
+include "../include_session/session.php";
 ?>
 	<div id="main">
 		<div id="leftcolumn">

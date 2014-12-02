@@ -1,3 +1,6 @@
+<?php
+	include "../include_session/session.php";
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,6 +20,131 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/movie/movie.js"></script>
 	<script type="text/javascript">
+
+//ajaxエラーが起こるため直書き
+window.onload = function(){
+
+//座席クリック
+$("td").not(".none").click(function(){
+
+	var this_td = $(this);
+	var td = $(this).text();
+
+	//座席予約登録
+	$.ajax({
+		type:"POST",
+		url:"AJAXsheet.php",
+		data:{
+			"td":td,
+			"c_id":<?= $c_id ?>
+		},
+		success:sc,
+		error:er
+	});	
+	function sc(data){
+		alert("OK");
+	}
+
+	function er(){ 
+		alert("通信エラー");
+	}
+
+	
+	//座席の色を戻す
+	if(this_td.css('z-index') == '101'){
+		//普通席
+		$(this).css({
+			"background":"#ddd",
+			"z-index":"100"
+		});
+	}
+	else if(this_td.css('z-index') == '103'){
+		//車椅子
+		$(this).css({
+			"background":"#0CF",
+			"z-index":"102"
+		});
+	}
+	else if(this_td.css('z-index') == '105'){
+		//ペアシート
+		$(this).css({
+			"background":"#52e26d",
+			"z-index":"104"
+		});
+	}
+	
+	//座席予約クリック
+	else{
+		if(this_td.css('z-index') == '100'){
+		//普通席クリック
+		$(this).css({
+			"background":"#fc9d50",
+			"z-index":"101"
+		});
+		}
+		//車椅子席クリック
+		else if(this_td.css('z-index') == '102'){
+			$(this).css({
+				"background":"#fc9d50",
+				"z-index":"103"
+			});
+		}
+		//ペアシートクリック
+		else if(this_td.css('z-index') == '104'){
+			$(this).css({
+				"background":"#fc9d50",
+				"z-index":"105"
+			});
+		}
+		
+		var yoyaku = this_td.text();
+		var sei = "男性";
+		var yen = "1800";
+		$("#yoyaku").append("予約座席："+yoyaku+"　"+sei+"　"+yen+"円<br />");
+	}
+
+});
+
+
+
+<?php
+///// DB接続設定 /////
+$host_name = "localhost";
+$dbms_user = "root";
+$dbms_pass = "";
+$con = mysql_connect($host_name , $dbms_user , $dbms_pass);
+mysql_query("SET NAMES utf8");
+mysql_select_db( "iw32" , $con );
+///// DB接続設定終わり /////
+
+$sql="
+select
+  x
+, retu
+from
+  movie
+where
+  movie_id = 1 AND
+  cinema_id = 1 AND
+  screen_id = 1 AND
+  seat_id = 1
+";
+$res = mysql_query($sql,$con);
+
+$i = 0;
+
+while($row = mysql_fetch_array($res)){
+	$x[$i] = $row[0];
+	$retu[$i] = $row[1];	
+	$i++;
+}
+?>
+
+
+
+}
+
+
 	$ (function(){
         $ (".content:not('.active + .content')").hide();       
         $(".menu").hover(function(){
@@ -44,6 +172,9 @@
 
 
 <?php
+
+	include('../header.php');
+
 	$movie_id = "1";
 	if(isset($_GET["movie_id"])){
 		$movie_id = htmlspecialchars($_GET["movie_id"], ENT_QUOTES);
@@ -62,14 +193,9 @@
 	$sql = "SELECT s.movie_id ,title, description ,s.movie_start ,m.3d FROM movie_m AS m JOIN schedule AS s ON m.movie_id = s.movie_id WHERE m.movie_id = '$movie_id'";
 
 	$res = mysql_query($sql , $con);
-
 	mysql_close($con);
 
-?>
-<?php
-include('../header.php');
-?>
-<?php
+
 	while($row = mysql_fetch_array($res)){
 		if( $row["3d"] ==0){
 			$real = "なし";
@@ -114,7 +240,6 @@ include('../header.php');
                     $sql = "
                     SELECT
                       x
-                    , y
                     , retu
                     , type
                     FROM seat2_1
@@ -126,6 +251,8 @@ include('../header.php');
                     //席改行用変数
                     $count = 1;
                     
+					$i = 0;
+					
                     //席の表示
                     while( $row = mysql_fetch_array( $res ) ){
 					
@@ -133,18 +260,23 @@ include('../header.php');
 							echo "</tr><tr>";
 						}
 						
-						if($row[3]=="普通席"){
-							echo "<td class='seat1'>".$row[2] ."-". $row[0]."</td>";
+						if($row[2]=="普通席"){
+//初期化されてないから！	if( $x[$i] == $row[0] && $retu[$i] == $row[1] ){
+//								echo "<td class='seat1'>あいうえお</td>";
+//							}else{
+								echo "<td class='seat1'>".$row[1] ."-". $row[0]."</td>";
+//							}
 						}
-						else if($row[3]=="車椅子"){
-							echo "<td class='seat2'>".$row[2] ."-". $row[0]."</td>";
+						else if($row[2]=="車椅子"){
+							echo "<td class='seat2'>".$row[1] ."-". $row[0]."</td>";
 						}
-						else if($row[3]=="ペアシート"){
-							echo "<td class='seat3'>".$row[2] ."-". $row[0]."</td>";
+						else if($row[2]=="ペアシート"){
+							echo "<td class='seat3'>".$row[1] ."-". $row[0]."</td>";
 						}else{
 							echo "<td class='none'></td>";
 						}
 						$count++;
+						$i++;
 					}
 					?>
 				</tr>
@@ -175,6 +307,7 @@ include('../header.php');
    			ここに内容が入ります。    
    			</div>
 		</div>
+
 <?php
 include('../footer.php');
 ?>
