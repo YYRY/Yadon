@@ -6,6 +6,9 @@ include "../include_session/session.php";
 $td = $_POST["td"];
 $c_id = $_POST["c_id"];
 
+$pattern = "";
+
+
 $flg1 = false;
 
 
@@ -56,6 +59,7 @@ if($flg1){
 	movie.retu = '$td1'
 	";
 	$res = mysql_query($sql,$con);
+	$pattern = "削除";
 }
 //登録
 else{
@@ -80,11 +84,12 @@ else{
 	 '$c_id', '1', '1', '1', '1', '$td2', '$td1', '0000-00-00', '00:00:00', NULL , '', '', '', ''
 	)";
 	$res = mysql_query($sql,$con);
+	$pattern = "登録";
 }
 
 mysql_close($con);
 
 
-echo $td1;
+echo $pattern;
 
 ?>

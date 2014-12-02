@@ -4,6 +4,8 @@
 include "../header.php";
 
 $flg1 = false;
+$flg2 = false;
+$link_saki = 0;
 $e_flg1 = false;
 $mail="";
 $pass="";
@@ -15,6 +17,19 @@ if( isset($_POST["mail"]) ){
 if( isset($_POST["pass"]) ){
 	$pass = $_POST["pass"];
 	$flg1 = true;
+}
+
+//特殊リンク用
+if( isset($_GET["link1"]) ){
+	$flg2 = true;
+}
+//movie/detail.php用
+if( isset($_POST["links"]) ){
+	$link = $_POST["links"];
+	if($link == "detail"){
+		$link_saki = 1;
+		$flg1 = true;
+	}
 }
 
 
@@ -37,16 +52,24 @@ if($flg1){
 	";
 	
 	$res = mysql_query($sql,$con);
+	mysql_close($con);
 	while($row = mysql_fetch_array($res)){
 		
 		$customer_id = $row[0];
 		//セッションスタート
 		session_start();
 		$_SESSION["c_id"] = $customer_id;
-		header( "location:../index.php" );
-		exit;
+
+		//movie/detail.phpへリンク
+		if($link_saki == 1){
+			header( "location:../movie/detail.php" );
+			exit;
+		}else{
+			header( "location:../index.php" );
+			exit;
+		}
 	}
-	mysql_close($con);
+
 	$e_flg1 = true;
 
 }
@@ -79,6 +102,10 @@ if($flg1){
 	<h1>ログイン</h1>
 	<hr color="#eee">
 	<form action="login.php" method="post">
+	<?php if($flg2){ ?>
+		<input type="hidden" name="links" value="detail">
+	<?php } ?>
+
 		<p class="red">
 		<?php
         if($e_flg1){
@@ -99,6 +126,7 @@ if($flg1){
 <?php
 include '../footer.php';
 ?>
+
 
 </body>
 </html>

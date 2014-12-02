@@ -1,6 +1,15 @@
 <?php
-	include "../include_session/session.php";
+include "../header.php";
+include "../include_session/session.php";
+
+//ログインしていないときログインさせる
+if( strlen($c_id) == 0 ){
+	header( "location:../login/login.php?link1=1" );
+	exit;
+}
+
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,11 +26,10 @@
 	<link href="../css/movie/movie.css" rel="stylesheet" type="text/css">
 	<link href="../css/movie/movie_sheet.css" rel="stylesheet" type="text/css">
 	<!--  js  -->
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/movie/movie.js"></script>
-	<script type="text/javascript">
 
-//ajaxエラーが起こるため直書き
+<script>
+
 window.onload = function(){
 
 //座席クリック
@@ -43,8 +51,16 @@ $("td").not(".none").click(function(){
 	});	
 	function sc(data){
 		alert("OK");
+		if(data == "登録"){
+			var yoyaku = this_td.text();
+			var sei = "男性";
+			var yen = "1800";
+			$("#yoyaku").append("<span class="+td+">予約座席："+yoyaku+"　"+sei+"　"+yen+"円<br /></span>");
+		}
+		else if(data = "削除"){
+			$("."+td).remove();
+		}
 	}
-
 	function er(){ 
 		alert("通信エラー");
 	}
@@ -73,7 +89,6 @@ $("td").not(".none").click(function(){
 		});
 	}
 	
-	//座席予約クリック
 	else{
 		if(this_td.css('z-index') == '100'){
 		//普通席クリック
@@ -97,83 +112,63 @@ $("td").not(".none").click(function(){
 			});
 		}
 		
-		var yoyaku = this_td.text();
-		var sei = "男性";
-		var yen = "1800";
-		$("#yoyaku").append("予約座席："+yoyaku+"　"+sei+"　"+yen+"円<br />");
 	}
 
-});
+});//クリック終了
+
+}
+</script>
 
 
 
 <?php
-///// DB接続設定 /////
-$host_name = "localhost";
-$dbms_user = "root";
-$dbms_pass = "";
-$con = mysql_connect($host_name , $dbms_user , $dbms_pass);
-mysql_query("SET NAMES utf8");
-mysql_select_db( "iw32" , $con );
-///// DB接続設定終わり /////
-
-$sql="
-select
-  x
-, retu
-from
-  movie
-where
-  movie_id = 1 AND
-  cinema_id = 1 AND
-  screen_id = 1 AND
-  seat_id = 1
-";
-$res = mysql_query($sql,$con);
-
-$i = 0;
-
-while($row = mysql_fetch_array($res)){
-	$x[$i] = $row[0];
-	$retu[$i] = $row[1];	
-	$i++;
-}
-?>
-
-
-
-}
-
-
-	$ (function(){
-        $ (".content:not('.active + .content')").hide();       
-        $(".menu").hover(function(){
-                $ (this).addClass("hover")
-        },
-        function(){
-                $(this).removeClass("hover")
-        });    
-        $ (".menu").click(function(){
-                $(".menu").removeClass("active");
-                $ (this).addClass("active");
-                $(".content:not('.active + .content')").fadeOut();
-        $ (".active + .content").fadeIn();     
-        });
-
-	//drag
-/*	$(".drag").draggable({
-		snap:".snap"
-	});
-*/
-
-});
-	</script>
+	///// DB接続設定 /////
+	$host_name = "localhost";
+	$dbms_user = "root";
+	$dbms_pass = "";
+	$con = mysql_connect($host_name , $dbms_user , $dbms_pass);
+	mysql_query("SET NAMES utf8");
+	mysql_select_db( "iw32" , $con );
+	///// DB接続設定終わり /////
+	
+	//配列初期化用
+	$sql="select * from seat2_1";
+	$res = mysql_query($sql,$con);
+	
+	$i = 0;
+	
+	while($row = mysql_fetch_array($res)){
+		$x[$i] = "";
+		$retu[$i] = "";	
+		$i++;
+	}
+	
+	
+	
+	//予約済み席抽出
+	$sql="
+	select
+	  x
+	, retu
+	from
+	  movie
+	where
+	  movie_id = 1 AND
+	  cinema_id = 1 AND
+	  screen_id = 1 AND
+	  seat_id = 1
+	";
+	$res = mysql_query($sql,$con);
+	
+	$i = 0;
+	
+	while($row = mysql_fetch_array($res)){
+		$x[$i] = $row[0];
+		$retu[$i] = $row[1];	
+		$i++;
+	}
 
 
-
-<?php
-
-	include('../header.php');
 
 	$movie_id = "1";
 	if(isset($_GET["movie_id"])){
@@ -217,8 +212,9 @@ while($row = mysql_fetch_array($res)){
 				echo "3D上映".$real;
 			echo "</div>";
 		echo "</div>";
-			}
+	}
 ?>
+
 	<div class="clear"></div>
 
 	<div class="full_content">
@@ -261,11 +257,11 @@ while($row = mysql_fetch_array($res)){
 						}
 						
 						if($row[2]=="普通席"){
-//初期化されてないから！	if( $x[$i] == $row[0] && $retu[$i] == $row[1] ){
-//								echo "<td class='seat1'>あいうえお</td>";
-//							}else{
+							if( $x[$i] == $row[0] && $retu[$i] == $row[1] ){
+								echo "<td class='select'>".$row[1] ."-". $row[0]."</td>";
+							}else{
 								echo "<td class='seat1'>".$row[1] ."-". $row[0]."</td>";
-//							}
+							}
 						}
 						else if($row[2]=="車椅子"){
 							echo "<td class='seat2'>".$row[1] ."-". $row[0]."</td>";
