@@ -50,15 +50,19 @@ $("td").not(".none").click(function(){
 		error:er
 	});	
 	function sc(data){
-		alert("OK");
+//		window.location.reload();
+//		alert("OK");
 		if(data == "登録"){
 			var yoyaku = this_td.text();
 			var sei = "男性";
 			var yen = "1800";
 			$("#yoyaku").append("<span class="+td+">予約座席："+yoyaku+"　"+sei+"　"+yen+"円<br /></span>");
 		}
-		else if(data = "削除"){
+		else if(data == "削除"){
 			$("."+td).remove();
+		}
+		else if(data == "登録済み"){
+			alert("他のユーザーが登録済みです");
 		}
 	}
 	function er(){ 
@@ -111,7 +115,7 @@ $("td").not(".none").click(function(){
 				"z-index":"105"
 			});
 		}
-		
+
 	}
 
 });//クリック終了
@@ -147,27 +151,54 @@ $("td").not(".none").click(function(){
 	
 	//予約済み席抽出
 	$sql="
-	select
-	  x
-	, retu
+	select distinct
+	  m.x
+	, m.retu
 	from
-	  movie
+	  movie AS m
+	join
+	  seat2_1 AS s
+	on
+	  m.seat_id = s.seat_id
 	where
-	  movie_id = 1 AND
-	  cinema_id = 1 AND
-	  screen_id = 1 AND
-	  seat_id = 1
+	  m.movie_id = 1 AND
+	  m.cinema_id = 1 AND
+	  m.screen_id = 1 AND
+	  m.seat_id = 1
+	ORDER BY
+	  s.y , s.x , retu
 	";
+
+/*
+	select
+	  m.x
+	, m.retu
+	from
+	  movie AS m
+	join
+	  seat2_1 AS s
+	on
+	  m.seat_id = s.seat_id
+	where
+	  m.movie_id = 1 AND
+	  m.cinema_id = 1 AND
+	  m.screen_id = 1 AND
+	  m.seat_id = 1
+	ORDER BY
+	  s.y , s.x
+*/
+
+
 	$res = mysql_query($sql,$con);
 	
 	$i = 0;
 	
 	while($row = mysql_fetch_array($res)){
 		$x[$i] = $row[0];
-		$retu[$i] = $row[1];	
+		$retu[$i] = $row[1];
+
 		$i++;
 	}
-
 
 
 	$movie_id = "1";
@@ -239,7 +270,7 @@ $("td").not(".none").click(function(){
                     , retu
                     , type
                     FROM seat2_1
-                    ORDER BY y , x";
+                    ORDER BY y , x ,retu";
 
                     //SQL実行
                     $res = mysql_query( $sql , $con );
@@ -251,28 +282,39 @@ $("td").not(".none").click(function(){
 					
                     //席の表示
                     while( $row = mysql_fetch_array( $res ) ){
-					
+
 						if($row[0]==1 && $count!=1){
 							echo "</tr><tr>";
 						}
-						
+
 						if($row[2]=="普通席"){
 							if( $x[$i] == $row[0] && $retu[$i] == $row[1] ){
 								echo "<td class='select'>".$row[1] ."-". $row[0]."</td>";
+								$i++;
 							}else{
 								echo "<td class='seat1'>".$row[1] ."-". $row[0]."</td>";
 							}
 						}
 						else if($row[2]=="車椅子"){
-							echo "<td class='seat2'>".$row[1] ."-". $row[0]."</td>";
+							if( $x[$i] == $row[0] && $retu[$i] == $row[1] ){
+								echo "<td class='select'>".$row[1] ."-". $row[0]."</td>";
+								$i++;
+							}else{
+								echo "<td class='seat2'>".$row[1] ."-". $row[0]."</td>";
+							}
 						}
 						else if($row[2]=="ペアシート"){
-							echo "<td class='seat3'>".$row[1] ."-". $row[0]."</td>";
+							if( $x[$i] == $row[0] && $retu[$i] == $row[1] ){
+								echo "<td class='select'>".$row[1] ."-". $row[0]."</td>";
+								$i++;
+							}else{
+								echo "<td class='seat3'>".$row[1] ."-". $row[0]."</td>";
+							}
 						}else{
 							echo "<td class='none'></td>";
 						}
+
 						$count++;
-						$i++;
 					}
 					?>
 				</tr>

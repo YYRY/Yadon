@@ -10,6 +10,7 @@ $pattern = "";
 
 
 $flg1 = false;
+$flg2 = false;
 
 
 //列の抽出
@@ -49,6 +50,25 @@ while($row = mysql_fetch_array($res)){
 }
 
 
+/******************************
+* 他ユーザーが予約済みの場合
+******************************/
+$sql = "
+select
+  *
+from
+  movie
+where
+  customer_id <> '$c_id' AND
+  x = '$td2' AND
+  retu = '$td1'
+";
+$res = mysql_query($sql,$con);
+while($row = mysql_fetch_array($res)){
+	$flg2 = true;
+}
+
+
 //削除
 if($flg1){
 	$sql="
@@ -60,6 +80,10 @@ if($flg1){
 	";
 	$res = mysql_query($sql,$con);
 	$pattern = "削除";
+}
+//他ユーザー登録済み
+else if($flg2){
+	$pattern = "登録済み";
 }
 //登録
 else{

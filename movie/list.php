@@ -1,4 +1,7 @@
 <?php
+include('../header.php');
+include "../include_session/session.php";
+
 	$host_name = "localhost";
 	$dbms_user = "root";
 	$dbms_pass = "";
@@ -10,12 +13,8 @@
 	$sql = "SELECT title ,description ,s.movie_id ,s.movie_start ,m.3d FROM movie_m AS m JOIN schedule AS s ON m.movie_id = s.movie_id ORDER BY movie_start DESC";
 
 	$res = mysql_query($sql , $con);
-
-
 ?>
-<?php
-include('../header.php');
-?>
+
 	<link href="../css/index.css" rel="stylesheet" type="text/css">
 	<link href="../css/movie/movie.css" rel="stylesheet" type="text/css">
 	<div id="main">
@@ -46,7 +45,7 @@ include('../header.php');
 						echo "<div class=\"movieStart\">".$row["movie_start"]."～</div>";
 						echo "3D上映".$real;
 					echo "</div>";
-					echo "<a class=\"btn\" href=\"#\">作品詳細</a>";
+					echo "<a class=\"btn\" href=\"detail.php\">作品詳細</a>";
 					echo "<div class=\"clear\"></div>";
 					echo "<hr size=\"3\" color=\"black\" width=\"100%\">";
 					
