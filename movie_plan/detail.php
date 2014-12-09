@@ -1,5 +1,4 @@
 <?php
-include "../include_session/session.php";
 include('../header.php');
 
 	$movie_id = "1";

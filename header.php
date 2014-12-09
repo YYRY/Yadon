@@ -1,5 +1,22 @@
 <?php
-//print_r($_SERVER);
+
+//セッションフラグ
+$s_flg = false;
+
+//セッションスタート
+@session_start();
+
+//セッションが無い状態
+if( !isset( $_SESSION["c_id"] ) || $_SESSION["c_id"] == null ){
+	$c_id = "";
+}
+//セッションがあった
+else{
+	$c_id = $_SESSION["c_id"];
+	$s_flg = true;
+}
+
+
 
 // 表示ルートの取得
 $root     = 'http://' . $_SERVER['HTTP_HOST'] . '/iw32/Yadon';
@@ -13,6 +30,7 @@ if ( 'Yadon/' === $dir ) {
 // ページ独自のスタイルやスクリプト用の
 $filename = basename($_SERVER['SCRIPT_FILENAME'], '.html');
 $filename = basename($filename, '.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -73,7 +91,23 @@ $('nav li a').hover(
 				<li><a href="<?=$root ?>/inquiry/inquiry.php" title="お問い合わせ"><img src="<?=$root ?>/img/icon/お問い合わせ.png" width="50" height="50" alt="お問い合わせ"></a></li>
 				<li><a href="<?=$root ?>/q&a/q&a.php" title="Q &amp; A"><img src="<?=$root ?>/img/icon/Q&A.png" width="50" height="50" alt="Q &amp; A"></a></li>
 				<li><a href="<?=$root ?>/sitemap/sitemap.php" title="サイトマップ"><img src="<?=$root ?>/img/icon/sitemap.png" width="50" height="50" alt="サイトマップ"></a></li>
-				<li><a href="<?=$root ?>/login/login.php" title="ログイン"><img src="<?=$root ?>/img/icon/ログイン.png" width="50" height="50" alt="ログイン"></a></li>
+
+                <?php
+				if( strlen($c_id) == 0 || $c_id == "" ){ ?>
+				<li>
+                	<a href="<?=$root ?>/login/login.php" title="ログイン">
+                		<img src="<?=$root ?>/img/icon/ログイン.png" width="50" height="50" alt="ログイン">
+                    </a>
+                </li>
+                <?php }else{ ?>
+				<li>
+                	<a href="<?=$root ?>/logout/logout.php" title="ログアウト">
+                		<img src="<?=$root ?>/img/icon/ログアウト.png" width="50" height="50" alt="ログアウト">
+                    </a>
+                </li>
+                <?php } ?>
+
+
 			</ul>
 		</header>
 

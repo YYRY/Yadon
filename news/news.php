@@ -1,7 +1,6 @@
 <?php
 
 //ヘッダー読み込み
-include "../include_session/session.php";
 include "../header.php";
 
 /*------------------------------*

@@ -1,12 +1,29 @@
 <?php
-include "../include_session/session.php";
-include "../header.php";
+//セッションフラグ
+$s_flg = false;
+
+//セッションスタート
+@session_start();
+
+//セッションが無い状態
+if( !isset( $_SESSION["c_id"] ) || $_SESSION["c_id"] == null ){
+	$c_id = "";
+}
+//セッションがあった
+else{
+	$c_id = $_SESSION["c_id"];
+	$s_flg = true;
+}
 
 //ログインしていないときログインさせる
-if( strlen($c_id) == 0 ){
+if( strlen($c_id) == 0 || $c_id == "" ){
 	header( "location:../login/login.php?link1=1" );
 	exit;
 }
+
+
+include "../header.php";
+
 
 ?>
 
@@ -166,7 +183,7 @@ $("td").not(".none").click(function(){
 	  m.screen_id = 1 AND
 	  m.seat_id = 1
 	ORDER BY
-	  s.y , s.x , retu
+	  retu , s.x
 	";
 
 /*

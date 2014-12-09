@@ -95,8 +95,6 @@ $F_mail2 = trim($F_mail, "\x00..\x1F");
 session_start();
 $_SESSION["mail"] = $F_mail2;
 
-//セッションのphp読み込み
-//include "../include_session/session.php";
 
 
 ?>

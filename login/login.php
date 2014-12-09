@@ -1,8 +1,5 @@
 <?php
 
-//ヘッダー読み込み
-include "../header.php";
-
 $flg1 = false;
 $flg2 = false;
 $link_saki = 0;
@@ -74,6 +71,8 @@ if($flg1){
 
 }
 
+//ヘッダー読み込み
+include "../header.php";
 ?>
 <!DOCTYPE html>
 <html>

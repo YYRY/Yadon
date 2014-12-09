@@ -8,10 +8,6 @@
 include "../header.php";
 
 
-//セッションのphp読み込み
-include "../include_session/session.php";
-
-
 //エラーメッセージ
 $e1 = "";
 $e2 = "";

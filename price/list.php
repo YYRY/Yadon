@@ -19,7 +19,6 @@
 <body>
 
 	<?php
-	include "../include_session/session.php";
 	include '../header.php';
 	?>
 
