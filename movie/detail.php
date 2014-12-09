@@ -1,6 +1,6 @@
 <?php
-include "../header.php";
 include "../include_session/session.php";
+include "../header.php";
 
 //ログインしていないときログインさせる
 if( strlen($c_id) == 0 ){

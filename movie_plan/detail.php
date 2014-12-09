@@ -1,4 +1,7 @@
 <?php
+include "../include_session/session.php";
+include('../header.php');
+
 	$movie_id = "1";
 	if(isset($_GET["movie_id"])){
 		$movie_id = htmlspecialchars($_GET["movie_id"], ENT_QUOTES);
@@ -24,10 +27,7 @@
 	mysql_close($con);
 
 ?>
-<?php
-include('../header.php');
-include "../include_session/session.php";
-?>
+
 	<div id="main">
 <?php
 	while($row = mysql_fetch_array($res)){
@@ -61,12 +61,12 @@ include "../include_session/session.php";
  	  		<div class="content">
    			<div class="drag"><img src="../img/movie/men.png"></div>
 			<div class="drag"><img src="../img/movie/girl.png"></div>
-			<div class="drag"><img src="../img/movie/kuruma.png"></div>  
+			<div class="drag"><img src="../img/movie/kuruma.png"></div>
    			</div>
        
    		<div class="menu">9/2(火)</div>
    			<div class="content">
-   			ここに内容が入ります。    
+   			ここに内容が入ります。
    		</div>
  
 		<div class="menu">9/3(水)</div>

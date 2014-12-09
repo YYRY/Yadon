@@ -1,4 +1,7 @@
 <?php
+include "../include_session/session.php";
+include('../header.php');
+
 	$host_name = "localhost";
 	$dbms_user = "root";
 	$dbms_pass = "";
@@ -11,10 +14,6 @@
 	$res = mysql_query($sql , $con);
 	mysql_close($con);
 	
-?>
-<?php
-include('../header.php');
-include "../include_session/session.php";
 ?>
 	<div id="main">
 		<div id="leftcolumn">
