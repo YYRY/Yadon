@@ -1,10 +1,10 @@
 <?php
-include '../header.php';
-session_start();
-	$CustmerId = 100;
-	//セッションにでーたを格納
-	//$CustmerId = $_SESSION["CustmerId"];
-	$_SESSION["CustmerId"] = $CustmerId;
+include ('../header.php');
+$customer_id = "";
+
+include ('../include_session/session.php');
+$customer_id = 4;//$_SESSION["c_id"];
+
 ?>
 <!--DOCTYPE html>
 <html>
@@ -32,15 +32,14 @@ session_start();
 				<li><a href="">サイトマップ</a></li>
 				<li><a href="">ログイン</a></li>
 			</ul>-->
-			<div><a href="user_info/user.html">ユーザ情報</a></div>
+			<div><a href="user_info/user.php?customer_id=<?php echo $customer_id?>">ユーザ情報</a></div>
+			<div><a href="history_info/history.php">購入履歴</a></div>
 			<div><a href="cregit_info/cregit.php">クレジットカード情報</a></div>
 			<div><a href="mail_info/mail.html">メルマガ登録・変更</a></div>
+			<div><a href="user_deleate.php?customer_id=<?php echo $customer_id?>">退会する</a></div>
 		</section>
 		<section class="right-cont">
-			<div>購入履歴</div>
-			<p>00/00:○○○を購入しました</p>
-			<p>00/00:○○○を購入しました</p>
-			<p>00/00:○○○を購入しました</p>
+			<div>有用情報</div>
 		</section>
 		<div class="cl"> </div>
 	</article>

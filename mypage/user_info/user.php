@@ -69,5 +69,5 @@ $res = mysql_query($user_info , $con);
 	<a href="user_insert.php">情報変更</a>
 	<a href="">よく買う人登録</a>
 <?php
-include ('../../footer.php');
+	include ('../../footer.php');
 ?>
