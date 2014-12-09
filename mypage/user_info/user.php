@@ -66,12 +66,8 @@ $res = mysql_query($user_info , $con);
     		</tbody>
 	</table>
 	<!-- main table fin -->
-	<!-- button -->
 	<a href="user_insert.php">情報変更</a>
-	<FORM>
-		<BUTTON type="yokukauhito">よく買う人登録</BUTTON>
-	</FORM>
-	<!-- button fin -->
+	<a href="">よく買う人登録</a>
 			<!-- フッター -->
 		<footer>
 			<section>
