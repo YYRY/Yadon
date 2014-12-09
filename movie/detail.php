@@ -337,7 +337,9 @@ $("td").not(".none").click(function(){
 				</tr>
             </table>
 
-			<div id="yoyaku"></div>
+			<div id="yoyaku">
+            	<a href="#">予約確認</a>
+            </div>
 
 
    		</div>

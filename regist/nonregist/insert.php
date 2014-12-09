@@ -92,7 +92,6 @@ $F_mail2 = trim($F_mail, "\x00..\x1F");
 
 
 //セッションを渡す
-session_start();
 $_SESSION["mail"] = $F_mail2;
 
 
