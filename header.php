@@ -47,10 +47,18 @@ $filename = basename($filename, '.php');
 		<![endif]-->
 
 		<title>HAL CINEMAS</title>
-		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/jquery/jquery-1.11.1.min.js"></script>
 <script>
 $(function(){
 
+$('nav li a').hover(
+        function(){  
+            $(this).stop().animate({'opacity' : '0.5'}, 500);
+        },
+        function(){
+            $(this).stop().animate({'opacity' : '1'}, 1000);
+        }
+);
 });
 </script>
 	</head>
@@ -61,7 +69,7 @@ $(function(){
 
 			<ul>
 				<li><a href="<?=$root ?>/regist/nonregist/regist.php" title="新規登録">新規登録<!--<img src="<?=$root ?>/img/icon/ログイン.png" width="50" height="50" alt="お問い合わせ">--></a></li>
-				<li><a href="<?=$root ?>/mypage/mypage.php" title="マイページ">マイページ<!--<img src="<?=$root ?>/img/icon/mypage.png" width="50" height="50" alt="お問い合わせ">--></a></li>
+				<li><a href="<?=$root ?>/mypage/mypage.php" title="マイページ"><img src="<?=$root ?>/img/icon/mypage.png" width="50" height="50" alt="お問い合わせ"></a></li>
 				<li><a href="<?=$root ?>/inquiry/inquiry.php" title="お問い合わせ"><img src="<?=$root ?>/img/icon/お問い合わせ.png" width="50" height="50" alt="お問い合わせ"></a></li>
 				<li><a href="<?=$root ?>/q&a/q&a.php" title="Q &amp; A"><img src="<?=$root ?>/img/icon/Q&A.png" width="50" height="50" alt="Q &amp; A"></a></li>
 				<li><a href="<?=$root ?>/sitemap/sitemap.php" title="サイトマップ"><img src="<?=$root ?>/img/icon/sitemap.png" width="50" height="50" alt="サイトマップ"></a></li>
@@ -73,7 +81,7 @@ $(function(){
 		<nav>
 			<ul>
 <li id="menu1"><a href="<?=$root ?>/movie/list.php" title="上映作品一覧">上映作品一覧</a></li>
-				<li id="menu2"><a href="<?=$root ?>/news/news.php" title="お知らせ">お知らせ</a></li>
+				<li id="menu2"><a href="<?=$root ?>/news/news.php" title="お知らせ" value="1">お知らせ</a></li>
 				<li id="menu3"><a href="<?=$root ?>/movie_plan/list.php" title="上映予定作品一覧">上映予定作品一覧</a></li>
 				<li id="menu4"><a href="<?=$root ?>/price/list.php" title="料金">料金</a></li>
 				<li id="menu5"><a href="<?=$root ?>/sale/list.php" title="割引サービス">割引サービス</a></li>
