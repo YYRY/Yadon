@@ -44,7 +44,7 @@ body > header {
 	background-color: rgba(0, 0, 0, .4);
 }
 body > header > h1 {
-	flex: 0 0 150px;
+	/*flex: 0 0 150px;*/
 	width: 244px;
 }
 body > header > p {
@@ -85,7 +85,6 @@ body > nav > ul{
 
  /* リストを横並びに */
 body > nav > ul  >li{
-    width: 100px;
     height: 40px;
     float: left;
     -ms-flex: 0 1 calc(100% / 6);			/* メニューは6つのため、100% / 6 */
@@ -96,9 +95,10 @@ body > nav > ul > li > a{
     text-decoration: none;  
     display: block;  
     width: 160px;  
-    height: 70px;  
-    background-image: url("../img/globalnav.png");  
-    background-repeat: no-repeat;  
+    height: 40px;  
+    background-image: url("../img/globalnav.png");
+    background-repeat: no-repeat; 
+     
 }
 /*hover時の指定*/
 body > nav > ul > li > a:hover{
@@ -106,7 +106,7 @@ body > nav > ul > li > a:hover{
     text-decoration: none;  
     display: block;  
     width: 160px;  
-    height: 70px;  
+    height: 40px;  
     background-image: url("../img/globalnav_hover.png");  
     background-repeat: no-repeat;
     color:#fff;  

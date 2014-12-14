@@ -32,8 +32,15 @@
 	z-index:104;
 }
 
-/*クリックした座席*/
-#sheet .select{
+
+/*自分の予約*/
+#sheet .select1{
+	background:#fc9d50;
+}
+
+
+/*他の人の予約*/
+#sheet .select2{
 	background:#666;
 }
 

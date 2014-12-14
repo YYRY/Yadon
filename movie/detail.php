@@ -67,8 +67,6 @@ $("td").not(".none").click(function(){
 		error:er
 	});	
 	function sc(data){
-//		window.location.reload();
-//		alert("OK");
 		if(data == "登録"){
 			var yoyaku = this_td.text();
 			var sei = "男性";
@@ -76,7 +74,9 @@ $("td").not(".none").click(function(){
 			$("#yoyaku").append("<span class="+td+">予約座席："+yoyaku+"　"+sei+"　"+yen+"円<br /></span>");
 		}
 		else if(data == "削除"){
-			$("."+td).remove();
+			$(this_td).removeClass("select1");
+			$(this_td).removeClass("select2");
+			$(this_td).addClass("seat1");
 		}
 		else if(data == "登録済み"){
 			alert("他のユーザーが登録済みです");
@@ -171,6 +171,7 @@ $("td").not(".none").click(function(){
 	select distinct
 	  m.x
 	, m.retu
+	, m.customer_id
 	from
 	  movie AS m
 	join
@@ -186,25 +187,6 @@ $("td").not(".none").click(function(){
 	  retu , s.x
 	";
 
-/*
-	select
-	  m.x
-	, m.retu
-	from
-	  movie AS m
-	join
-	  seat2_1 AS s
-	on
-	  m.seat_id = s.seat_id
-	where
-	  m.movie_id = 1 AND
-	  m.cinema_id = 1 AND
-	  m.screen_id = 1 AND
-	  m.seat_id = 1
-	ORDER BY
-	  s.y , s.x
-*/
-
 
 	$res = mysql_query($sql,$con);
 	
@@ -213,6 +195,7 @@ $("td").not(".none").click(function(){
 	while($row = mysql_fetch_array($res)){
 		$x[$i] = $row[0];
 		$retu[$i] = $row[1];
+		$customer_id[$i] = $row[2];
 
 		$i++;
 	}
@@ -283,11 +266,11 @@ $("td").not(".none").click(function(){
                     //席の座標を抽出する
                     $sql = "
                     SELECT
-                      x
-                    , retu
-                    , type
-                    FROM seat2_1
-                    ORDER BY y , x ,retu";
+                      s.x
+                    , s.retu
+                    , s.type
+                    FROM seat2_1 as s
+                    ORDER BY s.y , s.x , s.retu";
 
                     //SQL実行
                     $res = mysql_query( $sql , $con );
@@ -306,8 +289,13 @@ $("td").not(".none").click(function(){
 
 						if($row[2]=="普通席"){
 							if( $x[$i] == $row[0] && $retu[$i] == $row[1] ){
-								echo "<td class='select'>".$row[1] ."-". $row[0]."</td>";
-								$i++;
+								if($c_id == $customer_id[$i]){
+									echo "<td class='select1'>".$row[1] ."-". $row[0]."</td>";
+									$i++;
+								}else{
+									echo "<td class='select2'>".$row[1] ."-". $row[0]."</td>";
+									$i++;
+								}
 							}else{
 								echo "<td class='seat1'>".$row[1] ."-". $row[0]."</td>";
 							}
@@ -338,7 +326,7 @@ $("td").not(".none").click(function(){
             </table>
 
 			<div id="yoyaku">
-            	<a href="#">予約確認</a>
+            	<a href="../reserve/insert.php">予約確認</a>
             </div>
 
 

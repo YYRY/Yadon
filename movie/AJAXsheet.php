@@ -59,6 +59,7 @@ select
 from
   movie
 where
+  movie_id = 1 AND
   customer_id <> '$c_id' AND
   x = '$td2' AND
   retu = '$td1'
