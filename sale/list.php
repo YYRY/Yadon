@@ -12,13 +12,16 @@ include('../header.php');
 	$res = mysql_query($sql , $con);
 	mysql_close($con);
 ?>
-	<a href="#">TOP</a>>割引一覧
+<head>
+	<link href="../../css/list.css" rel="stylesheet" type="text/css">
+</head>
+	<a href="#">TOP</a><span>>割引一覧</span>
 	<div id="main">
 		<div id="leftcolumn">
 <?php
 while($row = mysql_fetch_array($res)){
-				echo"<div>".$row['service_name']."</div>";
-				echo "<div>".$row['service_detail']."</div>";
+				echo"<div class='line'>".$row['service_name']."</div>";
+				echo "<div class='line'>".$row['service_detail']."</div>";
 		}
 ?>
 		</div><!-- leftcolumn fin -->

@@ -50,7 +50,7 @@ mysql_select_db( "iw32" , $con );
 					<h3>ハルシネマからのお知らせ</h3>
 
                     <dl>
-						<?php
+			<?php
                         $sql = "SELECT title , registered_date FROM notice ORDER BY notice_id DESC LIMIT 6";
                         $res = mysql_query( $sql , $con );
 
@@ -101,8 +101,8 @@ mysql_select_db( "iw32" , $con );
 
 				<!-- バナー -->
 				<section>
-					<a href=""><img src="img/banner/banner_3D.png" class="banner" alt="バナー1"></a>
-					<a href=""><img src="img/banner/banner_3D.png" class="banner" alt="バナー2"></a>
+					<a href=""><img src="img/movie/000042158.jpg" class="banner" alt="バナー1"></a>
+					<a href=""><img src="img/movie/000043174.jpg" class="banner" alt="バナー2"></a>
 				</section>
 			</aside>
 		</article>

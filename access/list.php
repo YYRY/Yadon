@@ -99,10 +99,10 @@
 			</div
 							
 			</div>
-			<img src="../img/movie/koukousei_r.jpg" width="295px">
-			<img src="../img/movie/koukousei_r.jpg" width="295px">
-			<img src="../img/movie/koukousei_r.jpg" width="295px">
-			<img src="../img/movie/koukousei_r.jpg" width="295px">
+			<img src="../img/movie/banner4.jpg" width="295px">
+			<img src="../img/movie/banner.jpg" width="295px">
+			<img src="../img/movie/banner2.jpg" width="295px">
+			<img src="../img/movie/banner3.jpg" width="295px">
 			</div>
 		
 		</div><!-- rightcolumn fin-->

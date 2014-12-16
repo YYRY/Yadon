@@ -12,44 +12,29 @@ include('../header.php');
 	$res = mysql_query($sql , $con);
 	mysql_close($con);
 ?>
-	<a href="<?=$root ?>/index.php">TOP</a>>サイトマップ
+	<a href="<?=$root ?>/index.php">TOP</a><span>>サイトマップ</span>
 	<div id="main">
 		<div id="content">
 			<!-- box1 -->
 			<div class="box">
 			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
 			<div class="inbox"><a href="<?=$root ?>/movie/list.php">上映作品一覧</a></div>
-			<div class="inbox"><a href="<?=$root ?>/news/news.php">お知らせ</a></div>
+			<div class="inbox"><a href="<?=$root ?>/movie_plan/list.php">お知らせ</a></div>
 			<div class="inbox"><a href="<?=$root ?>/movie_plan/list.php">上映予定作品一覧</a></div>
+			</div><!-- box -->
+			<!-- box2 -->
+			<div class="box">
+			<div class="inbox"><a href="<?=$root ?>/index.php">ログイン</a></div>
+			<div class="inbox"><a href="<?=$root ?>/index.php">新規登録</a></div>
+			<div class="inbox"><a href="<?=$root ?>/index.php">マイページ</a></div>
+			<div class="inbox"><a href="<?=$root ?>/index.php">Q&A</a></div>
+			</div><!-- box -->
+			<!-- box3 -->
+			<div class="box">
 			<div class="inbox"><a href="<?=$root ?>/sale/list.php">料金</a></div>
 			<div class="inbox"><a href="<?=$root ?>/sale/list.php">割引サービス</a></div>
 			<div class="inbox"><a href="<?=$root ?>/index.php">アクセス方法</a></div>
 			<div class="inbox"><a href="<?=$root ?>/inquiry/inquiry.php">お問い合わせ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">Q&A</a></div>
-			</div><!-- box -->
-			<!-- box2 -->
-			<div class="box">
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			</div><!-- box -->
-			<!-- box3 -->
-			<div class="box">
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
-			<div class="inbox"><a href="<?=$root ?>/index.php">トップページ</a></div>
 			</div><!-- box -->
 		</div><!-- content fin -->
 	</div><!-- main fin -->

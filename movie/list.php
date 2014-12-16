@@ -21,6 +21,9 @@ include('../header.php');
 <?php
 
 			while($row = mysql_fetch_array($res)){
+
+				$mov = $row["movie_id"];
+
 				if( $row["3d"] ==0){
 					$real = "なし";
 				}else{
@@ -44,7 +47,8 @@ include('../header.php');
 						echo "<div class=\"movieStart\">".$row["movie_start"]."～</div>";
 						echo "3D上映".$real;
 					echo "</div>";
-					echo "<a class=\"btn\" href=\"detail.php\">作品詳細</a>";
+					echo "<a class='btn' href='detail.php?mov=".$mov."'>作品詳細</a>";
+//					echo "<a class=\"btn\" href=\"detail.php?movie=\">作品詳細</a>";
 					echo "<div class=\"clear\"></div>";
 					echo "<hr size=\"3\" color=\"black\" width=\"100%\">";
 					

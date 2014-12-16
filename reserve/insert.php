@@ -38,7 +38,7 @@ mysql_select_db( "iw32" , $con );
 $sql="
 select retu , x
 from movie
-where seat_id = 1 and customer_id = 3
+where seat_id = 1 and customer_id = '$c_id'
 order by retu , x
 ";
 

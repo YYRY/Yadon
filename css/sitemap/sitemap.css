@@ -43,7 +43,12 @@
 	height: 300px;
 	float: left;
 	margin-left: 100px;
+	line-height: 40px;
+	padding-top: 10px;
 }
 .inbox{
 	margin-top: 17px;
+}
+span{
+	color:#eee;
 }

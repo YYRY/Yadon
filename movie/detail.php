@@ -21,6 +21,13 @@ if( strlen($c_id) == 0 || $c_id == "" ){
 	exit;
 }
 
+//movie_id取得
+if( isset( $_GET["mov"] ) ){
+	$mov = $_GET["mov"];
+}else{
+	header( "location:../index.php" );
+	exit;
+}
 
 include "../header.php";
 
@@ -61,7 +68,8 @@ $("td").not(".none").click(function(){
 		url:"AJAXsheet.php",
 		data:{
 			"td":td,
-			"c_id":<?= $c_id ?>
+			"c_id":<?= $c_id ?>,
+			"mov":<?= $mov ?>
 		},
 		success:sc,
 		error:er
@@ -82,7 +90,7 @@ $("td").not(".none").click(function(){
 			alert("他のユーザーが登録済みです");
 		}
 	}
-	function er(){ 
+	function er(){
 		alert("通信エラー");
 	}
 
@@ -179,19 +187,18 @@ $("td").not(".none").click(function(){
 	on
 	  m.seat_id = s.seat_id
 	where
-	  m.movie_id = 1 AND
+	  m.movie_id = '$mov' AND
 	  m.cinema_id = 1 AND
 	  m.screen_id = 1 AND
 	  m.seat_id = 1
 	ORDER BY
-	  retu , s.x
+	  m.retu , m.x
 	";
 
-
 	$res = mysql_query($sql,$con);
-	
+
 	$i = 0;
-	
+
 	while($row = mysql_fetch_array($res)){
 		$x[$i] = $row[0];
 		$retu[$i] = $row[1];
@@ -200,14 +207,15 @@ $("td").not(".none").click(function(){
 		$i++;
 	}
 
-
+/*
 	$movie_id = "1";
 	if(isset($_GET["movie_id"])){
 		$movie_id = htmlspecialchars($_GET["movie_id"], ENT_QUOTES);
 	}
 	if (!preg_match("/^[0-9]*$/", $movie_id)){
 			header("Location:../index.php");
-		}
+	}
+*/
 	$host_name = "localhost";
 	$dbms_user = "root";
 	$dbms_pass = "";
@@ -216,7 +224,7 @@ $("td").not(".none").click(function(){
 	$con = mysql_connect($host_name,$dbms_user,$dbms_pass);
 	mysql_select_db("iw32",$con);
 	mysql_query('SET NAMES utf8', $con );
-	$sql = "SELECT s.movie_id ,title, description ,s.movie_start ,m.3d FROM movie_m AS m JOIN schedule AS s ON m.movie_id = s.movie_id WHERE m.movie_id = '$movie_id'";
+	$sql = "SELECT s.movie_id ,title, description ,s.movie_start ,m.3d FROM movie_m AS m JOIN schedule AS s ON m.movie_id = s.movie_id WHERE m.movie_id = '$mov'";
 
 	$res = mysql_query($sql , $con);
 	mysql_close($con);
@@ -249,7 +257,7 @@ $("td").not(".none").click(function(){
 	<div class="clear"></div>
 
 	<div class="full_content">
-   		<div class="menu active">9/1(月)</div>
+   		<div class="menu active">12/17(水)</div>
  	  	<div class="content">
    			<!--<div class="drag"><img src="../img/movie/men.png"></div>
 			<div class="drag"><img src="../img/movie/girl.png"></div>
@@ -326,28 +334,27 @@ $("td").not(".none").click(function(){
             </table>
 
 			<div id="yoyaku">
-            	<a href="../reserve/insert.php">予約確認</a>
+            	<a href="../reserve/insert.php">予約確認</a><br />
             </div>
-
 
    		</div>
 
-   		<div class="menu">9/2(火)</div>
+   		<div class="menu">12/18(木)</div>
    			<div class="content">
    			ここに内容が入ります。    
    		</div>
 
-		<div class="menu">9/3(水)</div>
+		<div class="menu">12/19(金)</div>
 		   	<div class="content">
 		   	ここに内容が入ります。    
 		</div>
    
-		<div class="menu">9/4(木)</div>
+		<div class="menu">12/20(土)</div>
 		   	<div class="content">
 		   	ここに内容が入ります。    
 		</div>
     
-   		<div class="menu">9/5(金)</div>
+   		<div class="menu">12/21(日)</div>
    			<div class="content">
    			ここに内容が入ります。    
    			</div>

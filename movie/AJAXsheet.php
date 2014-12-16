@@ -5,6 +5,7 @@ include "../include_session/session.php";
 
 $td = $_POST["td"];
 $c_id = $_POST["c_id"];
+$mov = $_POST["mov"];
 
 $pattern = "";
 
@@ -13,10 +14,10 @@ $flg1 = false;
 $flg2 = false;
 
 
-//列の抽出
+//列の抽出（AとかBとか）
 $td1 = substr( $td , 0 , 1 );
 
-//席x座標の抽出
+//席x座標の抽出（1とか2とか）
 $td2 = substr( $td , 2 , 2 );
 
 
@@ -59,7 +60,7 @@ select
 from
   movie
 where
-  movie_id = 1 AND
+  movie_id = '$mov' AND
   customer_id <> '$c_id' AND
   x = '$td2' AND
   retu = '$td1'
@@ -96,6 +97,7 @@ else{
 	`screen_id` ,
 	`seat_id` ,
 	`x` ,
+	`y` ,
 	`retu` ,
 	`watch_day` ,
 	`watch_time` ,
@@ -106,7 +108,7 @@ else{
 	`registered_date` 
 	)
 	VALUES (
-	 '$c_id', '1', '1', '1', '1', '$td2', '$td1', '0000-00-00', '00:00:00', NULL , '', '', '', ''
+	 '$c_id', '$mov', '1', '1', '1', '$td2', '' , '$td1' , '0000-00-00', '00:00:00', NULL , '', '', '', ''
 	)";
 	$res = mysql_query($sql,$con);
 	$pattern = "登録";
