@@ -31,7 +31,6 @@ if( isset( $_GET["mov"] ) ){
 
 include "../header.php";
 
-
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +60,10 @@ $("td").not(".none").click(function(){
 
 	var this_td = $(this);
 	var td = $(this).text();
+	var y = $(this).find("span").attr("class");
+
+	//表示された内容削除
+	$("."+td).remove();
 
 	//座席予約登録
 	$.ajax({
@@ -68,6 +71,7 @@ $("td").not(".none").click(function(){
 		url:"AJAXsheet.php",
 		data:{
 			"td":td,
+			"y":y,
 			"c_id":<?= $c_id ?>,
 			"mov":<?= $mov ?>
 		},
@@ -286,6 +290,8 @@ $("td").not(".none").click(function(){
                     //席改行用変数
                     $count = 1;
                     
+					$count2 = 1;
+					
 					$i = 0;
 					
                     //席の表示
@@ -293,35 +299,36 @@ $("td").not(".none").click(function(){
 
 						if($row[0]==1 && $count!=1){
 							echo "</tr><tr>";
+							$count2++;
 						}
 
 						if($row[2]=="普通席"){
 							if( $x[$i] == $row[0] && $retu[$i] == $row[1] ){
 								if($c_id == $customer_id[$i]){
-									echo "<td class='select1'>".$row[1] ."-". $row[0]."</td>";
+									echo "<td class='select1'>".$row[1] ."-". $row[0]."<span class='".$count2."'><span></td>";
 									$i++;
 								}else{
-									echo "<td class='select2'>".$row[1] ."-". $row[0]."</td>";
+									echo "<td class='select2'>".$row[1] ."-". $row[0]."<span class='".$count2."'><span></td>";
 									$i++;
 								}
 							}else{
-								echo "<td class='seat1'>".$row[1] ."-". $row[0]."</td>";
+								echo "<td class='seat1'>".$row[1] ."-". $row[0]."<span class='".$count2."'><span></td>";
 							}
 						}
 						else if($row[2]=="車椅子"){
 							if( $x[$i] == $row[0] && $retu[$i] == $row[1] ){
-								echo "<td class='select'>".$row[1] ."-". $row[0]."</td>";
+								echo "<td class='select'>".$row[1] ."-". $row[0]."<span class='".$count2."'><span></td>";
 								$i++;
 							}else{
-								echo "<td class='seat2'>".$row[1] ."-". $row[0]."</td>";
+								echo "<td class='seat2'>".$row[1] ."-". $row[0]."<span class='".$count2."'><span></td>";
 							}
 						}
 						else if($row[2]=="ペアシート"){
 							if( $x[$i] == $row[0] && $retu[$i] == $row[1] ){
-								echo "<td class='select'>".$row[1] ."-". $row[0]."</td>";
+								echo "<td class='select'>".$row[1] ."-". $row[0]."<span class='".$count2."'><span></td>";
 								$i++;
 							}else{
-								echo "<td class='seat3'>".$row[1] ."-". $row[0]."</td>";
+								echo "<td class='seat3'>".$row[1] ."-". $row[0]."<span class='".$count2."'><span></td>";
 							}
 						}else{
 							echo "<td class='none'></td>";

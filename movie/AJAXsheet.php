@@ -4,6 +4,7 @@
 include "../include_session/session.php";
 
 $td = $_POST["td"];
+$y = $_POST["y"];
 $c_id = $_POST["c_id"];
 $mov = $_POST["mov"];
 
@@ -84,11 +85,11 @@ if($flg1){
 	$pattern = "削除";
 }
 //他ユーザー登録済み
-else if($flg2){
+if($flg2){
 	$pattern = "登録済み";
 }
 //登録
-else{
+if($flg1 == false && $flg2 == false){
 	$sql ="
 	INSERT INTO `iw32`.`movie` (
 	 `customer_id` ,
@@ -108,7 +109,7 @@ else{
 	`registered_date` 
 	)
 	VALUES (
-	 '$c_id', '$mov', '1', '1', '1', '$td2', '' , '$td1' , '0000-00-00', '00:00:00', NULL , '', '', '', ''
+	 '$c_id', '$mov', '1', '1', '1', '$td2', '$y' , '$td1' , '0000-00-00', '00:00:00', NULL , '', '', '', ''
 	)";
 	$res = mysql_query($sql,$con);
 	$pattern = "登録";

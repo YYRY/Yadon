@@ -59,7 +59,7 @@ if($flg1){
 
 		//movie/detail.phpへリンク
 		if($link_saki == 1){
-			header( "location:../movie/list.php" );
+			header( "location:../movie/detail.php" );
 			exit;
 		}else{
 			header( "location:../index.php" );
