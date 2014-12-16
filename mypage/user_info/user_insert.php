@@ -5,18 +5,12 @@
 
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
 	if (isset($_POST["submit_add"])){
-		$new_name        = htmlspecialchars($_POST["name"], ENT_QUOTES);
-		$new_position_cd = htmlspecialchars($_POST[""], ENT_QUOTES);
-		$new_user_cd     = htmlspecialchars($_POST["new_user_cd"], ENT_QUOTES);
-		$new_user_name   = htmlspecialchars($_POST["new_user_name"], ENT_QUOTES);
-		$kakunin         = htmlspecialchars($_POST["kakunin"], ENT_QUOTES);
-		$new_pass = htmlspecialchars($_POST["new_pass"], ENT_QUOTES);
+		$new_name    = htmlspecialchars($_POST["name"], ENT_QUOTES);
+		$new_pass    = htmlspecialchars($_POST["pass"], ENT_QUOTES);
+		$new_kakunin = htmlspecialchars($_POST["kakunin"], ENT_QUOTES);
+		$new_email   = htmlspecialchars($_POST["email"], ENT_QUOTES);
 
-		$new_shop_cd = mb_convert_kana($new_shop_cd,"as");
-		$new_user_cd = mb_convert_kana($new_user_cd,"as");
-		$new_user_name = mb_convert_kana($new_user_name,"as");
-		$kakunin = mb_convert_kana($kakunin,"as");
-		$new_pass = mb_convert_kana($new_pass,"as");
+		$new_email = mb_convert_kana($new_email,"as");
 
 		//番号
 		if (!preg_match("/^[0-9]*$/", $new_shop_cd)){
@@ -61,11 +55,11 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 				</tr>
 				<tr>
 					<th><label for="pass">パスワード</label></th>
-					<td><input type="text" name="pass" id="pass"></td>
+					<td><input type="password" name="pass" id="pass"></td>
 				</tr>
 				<tr>
-					<th><label for="pass">パスワード(確認用)</label></th>
-					<td><input type="text" name="seinenn" id="nenrei"></td>
+					<th><label for="kakunin">パスワード(確認用)</label></th>
+					<td><input type="password" name="kakunin" id="kakunin"></td>
 				</tr>
 				<tr>
 					<th><label for="email">メールアドレス</label></th>
