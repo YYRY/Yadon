@@ -5,11 +5,11 @@
 
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
 	if (isset($_POST["submit_add"])){
-		$new_name = htmlspecialchars($_POST["name"], ENT_QUOTES);
+		$new_name        = htmlspecialchars($_POST["name"], ENT_QUOTES);
 		$new_position_cd = htmlspecialchars($_POST[""], ENT_QUOTES);
-		$new_user_cd = htmlspecialchars($_POST["new_user_cd"], ENT_QUOTES);
-		$new_user_name = htmlspecialchars($_POST["new_user_name"], ENT_QUOTES);
-		$kakunin = htmlspecialchars($_POST["kakunin"], ENT_QUOTES);
+		$new_user_cd     = htmlspecialchars($_POST["new_user_cd"], ENT_QUOTES);
+		$new_user_name   = htmlspecialchars($_POST["new_user_name"], ENT_QUOTES);
+		$kakunin         = htmlspecialchars($_POST["kakunin"], ENT_QUOTES);
 		$new_pass = htmlspecialchars($_POST["new_pass"], ENT_QUOTES);
 
 		$new_shop_cd = mb_convert_kana($new_shop_cd,"as");
@@ -52,21 +52,24 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 	<a href="user.html">ユーザ情報</a>&nbsp;>&nbsp;ユーザ情報変更	
 	<form action="<?=$_SERVER["PHP_SELF"]?>" method="POST" class="contact">
 		<p>以下のフォームにご入力の上、「入力内容の送信」ボタンをクリックしてください。</p>
-		<p class="attention"><img src="../../img/mypage/required1.gif" alt="必須" width="26" height="15">マークの項目は入力必須となります。</p>
 		<table>
 			<tbody>
 				<tr>
 					<th><label for="name">お名前</label></th>
-					<td><input type="text" name="name" id="name" size="50"><br>
+					<td><input type="text" name="name" id="name" size="30"><br>
 					<span class="supplement">例） HAL　東京</span></td>
 				</tr>
 				<tr>
 					<th><label for="pass">パスワード</label></th>
-					<td><input type="text" name="seinenn" id="nenrei" size="8"></td>
+					<td><input type="text" name="pass" id="pass"></td>
+				</tr>
+				<tr>
+					<th><label for="pass">パスワード(確認用)</label></th>
+					<td><input type="text" name="seinenn" id="nenrei"></td>
 				</tr>
 				<tr>
 					<th><label for="email">メールアドレス</label></th>
-					<td><input type="text" name="email" id="email" size="50"> <span class="supplement">（半角英数字）</span><br>
+					<td><input type="text" name="email" id="email" size="60"> <span class="supplement">（半角英数字）</span><br>
 					<span class="supplement">ご入力間違いのないようにご注意ください</span></td>
 				</tr>
 			</tbody>
