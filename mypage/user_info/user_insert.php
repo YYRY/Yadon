@@ -1,7 +1,14 @@
 <?php
 	include ('../../header.php');
-	$customer_cd = "";
-	$customer_cd = 4;//$_SESIION["customer_id"];
+	$customer_id = 4;//$_SESIION["customer_id"];
+	$error       = "";
+	$scucess     = "";
+
+	$host_name = "localhost";
+	$dbms_user = "root";
+	$dbms_pass = "";
+	$con = mysql_connect($host_name,$dbms_user,$dbms_pass);
+	mysql_select_db("iw32",$con);
 
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
 	if (isset($_POST["submit_add"])){
@@ -10,26 +17,24 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 		$new_kakunin = htmlspecialchars($_POST["kakunin"], ENT_QUOTES);
 		$new_email   = htmlspecialchars($_POST["email"], ENT_QUOTES);
 
-		$new_email = mb_convert_kana($new_email,"as");
-
-		//番号
-		if (!preg_match("/^[0-9]*$/", $new_shop_cd)){
-			$error = "店舗コードに誤りがあります。";
+		if($new_pass != $new_kakunin){
+			$error = "確認用パスワードとパスワードが異なります。";
 		}
-
-		if ($error==""){
-			$sql = "INSERT INTO customer_m VALUES($new_shop_cd,'$new_position_cd','$new_user_cd','$new_user_name','$new_pass') WHERE customer_id = '$customer_id'";
+		if($new_email !=""){
+			if (!preg_match("/@/i", $new_email)){
+			    $error = "メールアドレスが正しくありません。";
+			}
 		}
+		$sql = "UPDATE customer_m SET customer_name = '$new_name' ,pass = '$new_pass' ,mail = '$new_email' WHERE customer_id = '$customer_id';";
 	}
 
 	if ($error==""){
-		$mysql->query($sql);
-		$new_shop_cd = "";
-		$new_position_cd = "";
-		$new_user_cd = "";
-		$new_user_name = "";
-		$kakunin = "";
-		$new_pass = "";
+		$res = mysql_query($sql , $con);
+		$scucess     ="更新完了しました。";
+		$new_name    = "";
+		$new_pass    = "";
+		$new_kakunin ="";
+		$new_email   = "";
 	}
 }
 
@@ -46,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 	<a href="user.html">ユーザ情報</a>&nbsp;>&nbsp;ユーザ情報変更	
 	<form action="<?=$_SERVER["PHP_SELF"]?>" method="POST" class="contact">
 		<p>以下のフォームにご入力の上、「入力内容の送信」ボタンをクリックしてください。</p>
+		<?php echo $error; echo $scucess;?>
 		<table>
 			<tbody>
 				<tr>
