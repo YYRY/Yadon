@@ -46,7 +46,7 @@ DELETE FROM `iw32`.`movie` WHERE `movie`.`customer_id` = '$c_id' AND `movie`.`mo
 	<link rel="apple-touch-icon" href="img/icon/" /><!-- スマホで見るなら -->
 	<!--  css  -->
 	<link href="../css/common.css" rel="stylesheet" type="text/css">
-	<link href="../css/reserve/success.css" rel="stylesheet" type="text/css">
+	<link href="../css/reserved/success.css" rel="stylesheet" type="text/css">
 	<!--  js  -->
 	<script type="text/javascript" src="../js/jquery/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="../js/qr/jquery.qrcode.min.js"></script>
@@ -54,7 +54,7 @@ DELETE FROM `iw32`.`movie` WHERE `movie`.`customer_id` = '$c_id' AND `movie`.`mo
 
 <script type="text/javascript">
 $(document).ready(function(){
-     $('#qcdemo1').qrcode({		//demo2:幅や高さを指定する場合
+     $('#qr').qrcode({		//demo2:幅や高さを指定する場合
          width:100,				//QRコードの幅
          height:100,			//QRコードの高さ
          text:'http://hal.ovdesign.jp/md31/fujita/iw32/qr.php?c_id=<?= $c_id ?>'			//QRコードの内容
@@ -70,9 +70,9 @@ $(document).ready(function(){
 
 予約終わり<br /><br />
 
-
-<div id="qcdemo1"></div>
-
+<div id="QRarea">
+	<div id="qr"></div>
+</div>
 
 
 
