@@ -341,7 +341,7 @@ $("td").not(".none").click(function(){
             </table>
 
 			<div id="yoyaku">
-            	<a href="../reserve/insert.php">予約確認</a><br />
+            	<a href="../reserve/insert.php?mov=<?= $mov ?>">予約確認</a><br />
             </div>
 
    		</div>

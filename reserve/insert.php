@@ -1,6 +1,16 @@
 <?php
 include "../header.php";
 
+
+//movie_id取得
+if( isset( $_GET["mov"] ) ){
+	$mov = $_GET["mov"];
+}else{
+	header( "location:../index.php" );
+	exit;
+}
+
+
 ///// DB接続設定 /////
 $host_name = "localhost";
 $dbms_user = "root";
@@ -32,7 +42,7 @@ mysql_select_db( "iw32" , $con );
 <body>
 
 <div id="yoyaku">
-<a href="../movie/detail.php">座席選択に戻る</a>
+<a href="../movie/detail.php?mov=<?= $mov ?>">座席選択に戻る</a>
 <?php
 //予約席
 $sql="
@@ -58,7 +68,12 @@ echo $count*1800 ."円<br />";
 
 ?>
 
-<a href="success.php">以上の席で予約する</a>
+<form action="success.php" method="post">
+	<input type="hidden" name="c_id" value="<?= $c_id ?>">
+	<input type="hidden" name="mov" value="<?= $mov ?>">
+    <input type="submit" value="以上の席で予約する">
+</form>
+
 
 </div>
 
