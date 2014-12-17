@@ -4,7 +4,6 @@
 	<link href="../../css/common.css" rel="stylesheet" type="text/css">
 	<link href="../../css/mypage/user.css" rel="stylesheet" type="text/css">
 	<script src="js/script.js"></script>
-	<!-- main table -->
 <?php
 if($_GET["customer_id"] == null || !isset($_GET["customer_id"])){
     header("location:../mypage.php?mess=1");
