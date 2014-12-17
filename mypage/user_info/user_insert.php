@@ -9,6 +9,7 @@
 	$dbms_pass = "";
 	$con = mysql_connect($host_name,$dbms_user,$dbms_pass);
 	mysql_select_db("iw32",$con);
+	mysql_query('SET NAMES utf8', $con );
 
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
 	if (isset($_POST["submit_add"])){
