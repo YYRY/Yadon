@@ -1,29 +1,23 @@
 <?php
-	session_start();
-	$CustmerId = $_SESSION["CustmerId"];
+	include ('../../header.php');
 
+	$custmer_id = 4;//$_SESSION["customer_id"];
 	$host_name = "localhost";
 	$dbms_user = "root";
 	$dbms_pass = "";
 
-	//DBMS(MySQL)へ接続
 	$con = mysql_connect($host_name,$dbms_user,$dbms_pass);
 	mysql_select_db("iw32",$con);
+	mysql_query('SET NAMES utf8', $con );
 
-	//sql文作成
-	$sql = "SELECT card_n ,card_h ,card_d from credit_m where credit_id LIKE ".$CustmerId."";
+	$sql = "SELECT card_n ,card_h ,card_d from credit_m where credit_id LIKE ".$custmer_id."";
 
-	//sql実行
 	$res = mysql_query($sql , $con);
 
-	//DB切断
 	mysql_close($con);
-
 ?>
 
-<?php
-include '../../header.php';
-?>
+
 	<article>
 		<section>
 			<div>
