@@ -1,11 +1,37 @@
-#QRarea{
-	width:120px;
-	height:120px;
-	background:#fff;
+@charset "utf-8";
+
+.reserved_t1 {
+	width : 850px;
+	margin-top : 50px;
+	margin-left : auto;
+	margin-right : auto;
+	margin-bottom : 50px;
 }
 
-#qr{
-	position:relative;
-	top:10px;
-	left:10px;
+.reserved_t1 tr td {
+	border : 1px solid black;
+	margin : 5px;
+}
+
+.reserved_t1_left {
+	width : 500px;
+}
+
+.reserved_t2 {
+	width : 800px;
+	margin-left : auto;
+	margin-right : auto;
+}
+
+.reserved_t3 {
+	width : 800px;
+	margin-left : auto;
+	margin-right : auto;
+}
+#box{
+	width: 800px;
+	padding: 15px;
+	background-color: #fff;
+	margin: 0 auto;
+	border-radius: 10px;
 }
