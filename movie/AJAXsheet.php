@@ -7,6 +7,8 @@ $td = $_POST["td"];
 $y = $_POST["y"];
 $c_id = $_POST["c_id"];
 $mov = $_POST["mov"];
+$day = $_POST["day"];
+$time = $_POST["time"];
 
 $pattern = "";
 
@@ -43,6 +45,8 @@ from
   movie
 where
   customer_id = '$c_id' AND
+  watch_day = '$day' AND
+  watch_time = '$time' AND
   x = '$td2' AND
   retu = '$td1'
 ";
@@ -63,6 +67,8 @@ from
 where
   movie_id = '$mov' AND
   customer_id <> '$c_id' AND
+  watch_day = '$day' AND
+  watch_time = '$time' AND
   x = '$td2' AND
   retu = '$td1'
 ";
@@ -78,6 +84,8 @@ if($flg1){
 	DELETE FROM iw32.movie
 	WHERE
 	movie.customer_id = '$c_id' AND
+	watch_day = '$day' AND
+	watch_time = '$time' AND
 	movie.x = '$td2' AND
 	movie.retu = '$td1'
 	";
@@ -109,7 +117,7 @@ if($flg1 == false && $flg2 == false){
 	`registered_date` 
 	)
 	VALUES (
-	 '$c_id', '$mov', '1', '1', '1', '$td2', '$y' , '$td1' , '0000-00-00', '00:00:00', NULL , '', '', '', ''
+	 '$c_id', '$mov', '1', '1', '1', '$td2', '$y' , '$td1' , '$day', '$time', NULL , '', '', '', ''
 	)";
 	$res = mysql_query($sql,$con);
 	$pattern = "登録";

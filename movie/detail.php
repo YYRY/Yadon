@@ -29,6 +29,17 @@ if( isset( $_GET["mov"] ) ){
 	exit;
 }
 
+
+if( isset( $_GET["day"] ) ){
+	$day = $_GET["day"];
+}
+
+if( isset( $_GET["time"] ) ){
+	$time = $_GET["time"];
+}
+
+
+
 include "../header.php";
 
 ?>
@@ -73,7 +84,9 @@ $("td").not(".none").click(function(){
 			"td":td,
 			"y":y,
 			"c_id":<?= $c_id ?>,
-			"mov":<?= $mov ?>
+			"mov":<?= $mov ?>,
+			"day":<?= $day ?>,
+			"time":<?= $time ?>
 		},
 		success:sc,
 		error:er
@@ -81,9 +94,8 @@ $("td").not(".none").click(function(){
 	function sc(data){
 		if(data == "登録"){
 			var yoyaku = this_td.text();
-			var sei = "男性";
 			var yen = "1800";
-			$("#yoyaku").append("<span class="+td+">予約座席："+yoyaku+"　"+sei+"　"+yen+"円<br /></span>");
+			$("#yoyaku").append("<span class="+td+">予約座席："+yoyaku+" "+yen+"円<br /></span>");
 		}
 		else if(data == "削除"){
 			$(this_td).removeClass("select1");
@@ -192,13 +204,14 @@ $("td").not(".none").click(function(){
 	  m.seat_id = s.seat_id
 	where
 	  m.movie_id = '$mov' AND
+	  m.watch_day = '$day' AND
+	  m.watch_time = '$time' AND
 	  m.cinema_id = 1 AND
 	  m.screen_id = 1 AND
 	  m.seat_id = 1
 	ORDER BY
 	  m.retu , m.x
 	";
-
 	$res = mysql_query($sql,$con);
 
 	$i = 0;
@@ -341,12 +354,12 @@ $("td").not(".none").click(function(){
             </table>
 
 			<div id="yoyaku">
-            	<a href="../reserve/insert.php?mov=<?= $mov ?>">予約確認</a><br />
+            	<a href="../reserve/insert.php?day=<?= $day ?>&time=<?= $time ?>&mov=<?= $mov ?>">予約確認</a><br />
             </div>
 
    		</div>
 
-   		<div class="menu">12/18(木)</div>
+<!--   		<div class="menu">12/18(木)</div>
    			<div class="content">
    			ここに内容が入ります。    
    		</div>
@@ -364,8 +377,9 @@ $("td").not(".none").click(function(){
    		<div class="menu">12/21(日)</div>
    			<div class="content">
    			ここに内容が入ります。    
-   			</div>
-		</div>
+   			</div>-->
+
+	</div>
 
 <?php
 include('../footer.php');
