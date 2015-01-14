@@ -71,24 +71,37 @@ $res = mysql_query($sql,$con);
 	<link rel="apple-touch-icon" href="img/icon/" /><!-- スマホで見るなら -->
 
 	<!--  css  -->
-	<link href="../css/common.css" rel="stylesheet" type="text/css">
-	<link href="../css/reserved/insert.css" rel="stylesheet" type="text/css">
+	<link href="../../css/common.css" rel="stylesheet" type="text/css">
+	<link href="../../css/regist/nonregist/success.css" rel="stylesheet" type="text/css">
 
 	<!--  js  -->
 
 	</head>
+
+<style>
+#kannryou{
+	width: 900px;
+	height:100px;
+	margin: 0 auto;
+	padding: 15px;
+	background-color: #fff;
+	border-radius: 10px;
+}
+
+</style>
+
 <body>
 
 <article>
 
-
-<h1>予約完了しました</h1>
-<p>
-    会員登録と映画予約が完了しました。
-    登録されたアドレス宛に映画予約の際に使用できるQRコードが送られました。<br />
-    映画鑑賞の際にチケット代わりになります。
-</p>
-
+<div id="kannryou">
+    <h1>予約完了しました</h1>
+    <p>
+        会員登録と映画予約が完了しました。
+        登録されたアドレス宛に映画予約の際に使用できるQRコードが送られました。<br />
+        映画鑑賞の際にチケット代わりになります。
+    </p>
+</div>
 
 </article>
 
