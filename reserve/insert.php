@@ -11,6 +11,15 @@ if( isset( $_GET["mov"] ) ){
 }
 
 
+if( isset( $_GET["day"] ) ){
+	$day = $_GET["day"];
+}
+
+if( isset( $_GET["time"] ) ){
+	$time = $_GET["time"];
+}
+
+
 ///// DB接続設定 /////
 $host_name = "localhost";
 $dbms_user = "root";
@@ -48,7 +57,7 @@ mysql_select_db( "iw32" , $con );
 $sql="
 select retu , x
 from movie
-where seat_id = 1 and customer_id = '$c_id'
+where watch_day = '$day' and watch_time = '$time' and movie_id = '$mov' and seat_id = 1 and customer_id = '$c_id'
 order by retu , x
 ";
 
@@ -57,14 +66,16 @@ $res = mysql_query($sql,$con);
 $count = 0;
 
 while($row = mysql_fetch_array($res)){
+	echo "<br />";
+	echo "<li>";
 	echo $row[0];
 	echo "-";
 	echo $row[1];
-	echo "<br />";
+	echo "</li>";
 	$count++;
 }
-echo "全".$count."席<br />";
-echo $count*1800 ."円<br />";
+echo "<br /><li class='migi'>全".$count."席</li>";
+echo "<li class='migi'>合計金額:".$count*1800 ."円</li><br />";
 
 ?>
 
