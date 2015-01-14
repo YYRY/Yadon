@@ -1,0 +1,21 @@
+@charset "utf-8";
+#yoyaku{
+	width: 900px;
+	margin: 0 auto;
+	padding: 15px;
+	background-color: #fff;
+	border-radius: 10px;
+}
+#yoyaku li{
+	list-style: none;
+	line-height: 1em;
+	font-size: 1rem;
+	margin-left: 10px;
+}
+.migi{
+	float: left;
+}
+form{
+	clear: both;
+	margin-top: 10px;
+}
