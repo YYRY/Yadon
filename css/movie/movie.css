@@ -177,7 +177,7 @@ table.company td {
 	border: 1px solid #FFF;
 	-moz-box-shadow: 1px 1px 1px rgba(000,000,000,0.3);
 	-webkit-box-shadow: 1px 1px 1px rgba(000,000,000,0.3);
-	width: 100px;
+	width: 150px;
 	padding: 3px 0;
 	float:right;
 }
@@ -210,5 +210,5 @@ h2{
 
 #yoyakusuru{
 	position:relative;
-	left:450px;
+	left:350px;
 }
