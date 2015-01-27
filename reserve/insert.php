@@ -51,7 +51,7 @@ mysql_select_db( "iw32" , $con );
 <body>
 
 <div id="yoyaku">
-<a href="../movie/detail.php?mov=<?= $mov ?>">座席選択に戻る</a>
+<a href="../movie/detail.php?day=<?= $day ?>&time=<?= $time ?>&mov=<?= $mov ?>">座席選択に戻る</a>
 <?php
 //予約席
 $sql="
