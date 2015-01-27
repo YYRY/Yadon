@@ -34,10 +34,10 @@ if( isset( $_GET["day"] ) ){
 	$day = $_GET["day"];
 }
 
+
 if( isset( $_GET["time"] ) ){
 	$time = $_GET["time"];
 }
-
 
 
 include "../header.php";
@@ -274,13 +274,12 @@ $("td").not(".none").click(function(){
 	<div class="clear"></div>
 
 	<div class="full_content">
-   		<div class="menu active">12/17(水)</div>
+   		<div class="menu active"></div>
  	  	<div class="content">
    			<!--<div class="drag"><img src="../img/movie/men.png"></div>
 			<div class="drag"><img src="../img/movie/girl.png"></div>
 			<div class="drag"><img src="../img/movie/kuruma.png"></div>-->
             
-            <h1>スクリーン1</h1>
 
         	<table id="sheet">
 	        	<tr>

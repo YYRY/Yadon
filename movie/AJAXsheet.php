@@ -100,7 +100,7 @@ if($flg2){
 if($flg1 == false && $flg2 == false){
 	$sql ="
 	INSERT INTO `iw32`.`movie` (
-	 `customer_id` ,
+	`customer_id` ,
 	`movie_id` ,
 	`cinema_id` ,
 	`screen_id` ,

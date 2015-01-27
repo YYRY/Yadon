@@ -12,6 +12,21 @@ include('../header.php');
 	$sql = "SELECT title ,description ,s.movie_id ,s.movie_start ,m.3d FROM movie_m AS m JOIN schedule AS s ON m.movie_id = s.movie_id ORDER BY movie_start DESC";
 
 	$res = mysql_query($sql , $con);
+
+
+$year1 = date("Y");				//年をセット
+$month1 = date("m");			//月をセット
+$day1 = date("d");
+$day2 = date("d")+1;
+$day3 = date("d")+2;
+$ymd = date("Ymd");
+
+//DBに登録されないバグ消し
+if($month1 < 10){
+	$month1 = substr($month1, 1, 1); 
+}
+
+
 ?>
 
 	<link href="../css/index.css" rel="stylesheet" type="text/css">
@@ -48,10 +63,12 @@ include('../header.php');
 						echo "3D上映".$real;
 					echo "</div>";
 					echo "<p id='yoyakusuru'>予約する</p>";
-					echo "<a class='btn' href='detail.php?day=1217&time=1530&mov=".$mov."'>12月17日15:30～18:00</a>";
-					echo "<a class='btn' href='detail.php?day=1217&time=930&mov=".$mov."'>12月17日9:30～12:30</a><br /><br /><br />";
-					echo "<a class='btn' href='detail.php?day=1218&time=1530&mov=".$mov."'>12月18日15:30～18:00</a>";
-					echo "<a class='btn' href='detail.php?day=1218&time=930&mov=".$mov."'>12月18日9:30～12:30</a>";
+					echo "<a class='btn' href='detail.php?day=".$month1.$day1."&time=1530&mov=".$mov."'>".$year1."年".$month1."月".$day1."日<br />15:30～18:00</a>";
+					echo "<a class='btn' href='detail.php?day=".$month1.$day1."&time=930&mov=".$mov."'>".$year1."年".$month1."月".$day1."日<br />9:30～12:30</a><br /><br /><br />";
+					echo "<a class='btn' href='detail.php?day=".$month1.$day2."&time=1530&mov=".$mov."'>".$year1."年".$month1."月".$day2."日<br />15:30～18:00</a>";
+					echo "<a class='btn' href='detail.php?day=".$month1.$day2."&time=930&mov=".$mov."'>".$year1."年".$month1."月".$day2."日<br />9:30～12:30</a><br /><br /><br />";
+					echo "<a class='btn' href='detail.php?day=".$month1.$day3."&time=1530&mov=".$mov."'>".$year1."年".$month1."月".$day3."日<br />15:30～18:00</a>";
+					echo "<a class='btn' href='detail.php?day=".$month1.$day3."&time=930&mov=".$mov."'>".$year1."年".$month1."月".$day3."日<br />9:30～12:30</a>";
 //					echo "<a class='btn' href='detail.php?mov=".$mov."'>作品詳細</a>";
 //					echo "<a class=\"btn\" href=\"detail.php?movie=\">作品詳細</a>";
 					echo "<div class=\"clear\"></div>";
