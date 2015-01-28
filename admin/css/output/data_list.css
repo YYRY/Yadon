@@ -1,0 +1,39 @@
+article{
+	width:960px;
+	margin:0 auto;
+}
+
+
+.INFO{
+	width:278px;
+	margin:10px;
+	padding:10px;
+	border:1px solid #f5f5f5;
+	background:#fff;
+	float:left;
+}
+
+
+.INFO .I_Top{
+	margin-bottom:10px;
+	font-size:1.1em;
+}
+
+.INFO .I_Top p{
+	font-weight:bold;
+}
+
+
+.INFO .I_Bottom{
+	font-size:0.9em;
+}
+
+
+.clear{
+	clear:both;
+}
+
+
+article a{
+	margin:20px 0 0 20px;
+}

@@ -1,0 +1,47 @@
+#WRAP{
+	width:960px;
+	margin:0 auto;
+}
+
+#WRAP #title{
+	margin:30px 0;
+}
+
+
+.area{
+	width:200px;
+	float:left;
+}
+
+#area2{
+	width:400px;
+}
+
+.clear{
+	clear:both;
+}
+
+
+td{
+	width:30px;
+	height:30px;
+	font-size:0.6em;
+	background:#ddd;
+	text-align:center;
+}
+
+/*車椅子*/
+.car{
+	background:#3CC;
+}
+
+/*ペアシート*/
+.pear{
+	background:#FC3;
+}
+
+/*席がない場所*/
+.null{
+	background:#fff;
+}
+

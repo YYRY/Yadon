@@ -1,0 +1,1 @@
+mbfpdf.php　と　font/mbttfdef.php　が日本語化用のファイル

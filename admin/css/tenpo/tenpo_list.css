@@ -1,0 +1,38 @@
+article{
+	width:960px;
+	margin:0 auto;
+}
+
+article a{
+	text-decoration: none; 
+}
+
+table{
+	margin:20px 0 20px 225px;
+}
+
+th{
+	width:150px;
+	border-top:1px solid #999;
+	border-right:1px solid #999;
+	border-left:1px solid #999;
+}
+
+td{
+	width:150px;
+	height:30px;
+	border:1px solid #999;
+}
+
+.screen{
+	width:180px;
+}
+
+.seat{
+	width:180px;
+}
+
+
+#button1{
+	margin:0 45px 0 225px;
+}
