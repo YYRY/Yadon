@@ -29,7 +29,63 @@ $pdf -> addMbFont ( GOTHIC , 'SJIS' );
 $pdf -> addMbFont ( MINCHO , 'SJIS' );
 
 //文字サイズとフォント
+$pdf -> setFont ( GOTHIC , '' , '22px' );
+$pdf -> write ( 20 , '予約関連分析資料 PDF');
+$pdf -> Ln (10);
+
+/*****************
+* 映画別売り上げ
+*****************/
+$pdf -> setFont ( GOTHIC , '' , '18px' );
+$pdf -> write ( 50 , '映画別売り上げ');
+//改行
+$pdf -> Ln (30);
 $pdf -> setFont ( GOTHIC , '' , '12px' );
+
+		
+//SQL 映画名を抽出
+$sql = "
+SELECT DISTINCT title , count(*)*1800 , count(*)
+FROM movie_m AS MM 
+
+JOIN movie AS m
+ON m.movie_id = MM.movie_id
+
+GROUP BY m.movie_id
+ORDER BY count(m.movie_id) DESC";
+				
+//SQL実行
+$res = mysql_query( $sql , $con );		//$resには「成功 true」か「失敗 false」が入る
+
+//添え字用変数
+$count = 1;
+
+
+$pdf -> setFillColor(90 , 90 , 90);
+$pdf -> setTextColor(255 , 255 , 255);
+$pdf -> cell(100 , 10 , "タイトル" , '1' , 0 , "C" , 1);
+$pdf -> cell(40 , 10 , "売り上げ" , 'TBLR' , 0 , "C" , 1);		//TBLRは上下左右に設定（個別に指定できる） 1で囲む　0で枠無し
+$pdf -> cell(40 , 10 , "件数" , 'TBLR' , 1 , "C" , 1);
+
+$pdf -> setFillColor(255 , 255 , 255);
+$pdf -> setTextColor(0 , 0 , 0);
+
+//色アイコンと映画タイトル表示
+while( $row = mysql_fetch_array( $res ) ){
+	$row[0] = substr($row[0], 0, 40);
+	$pdf -> cell(100 , 10 , $row[0] , '1' , 0 , "C" , 1);
+	$pdf -> cell(40 , 10 , $row[1]."円" , '1' , 0 , "C" , 1);
+	$pdf -> cell(40 , 10 , $row[2]."件" , '1' , 1 , "C" , 1);
+	$count++;
+}
+
+
+
+
+
+
+//改ページ
+$pdf -> addPage();
 
 
 
@@ -131,16 +187,6 @@ $pdf -> cell(50 , 10 , $row[1]."人" , 'TBLR' , 1);
 $pdf -> Ln (10);
 
 }
-
-
-
-
-//改行
-$pdf -> Ln (10);
-
-
-//改ページ
-$pdf -> addPage();
 
 
 
