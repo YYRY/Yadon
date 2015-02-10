@@ -100,8 +100,8 @@ while( $row = mysql_fetch_array( $res ) ){
 
 	$pdf -> setFillColor(255 , 255 , 255);
 	$pdf -> setTextColor(0 , 0 , 0);
-	$pdf -> cell(50 , 10 , $row[0]."«" , 'TBLR' , 0);
-	$pdf -> cell(50 , 10 , $row[1] , 'TBLR' , 1);
+	$pdf -> cell(50 , 8 , $row[0]."«" , 'TBLR' , 0);
+	$pdf -> cell(50 , 8 , $row[1] , 'TBLR' , 1);
 
 	$all_count++;
 
@@ -125,6 +125,7 @@ $pdf -> cell(100 , 10 , "‘SF".$all_count."Œ" , '1' , 1 , "L" , 1);
 * ‰f‰æ•Ê”„‚èã‚°
 *****************/
 $pdf -> setFont ( GOTHIC , '' , '18px' );
+$pdf -> setTextColor(0 , 0 , 0);
 $pdf -> write ( 50 , '‰f‰æ•Ê”„‚èã‚°');
 //‰üs
 $pdf -> Ln (30);
