@@ -59,6 +59,7 @@ if($getu == 1){
 	  mm.title
 	, count(mo.movie_id)
 	, CHAR_LENGTH(mo.watch_day)
+	, mo.movie_id
 	from
 	 movie AS mo
 	join
@@ -75,6 +76,7 @@ $sql ="
 	select
 	  mm.title
 	, count(mo.movie_id)
+	, mo.movie_id
 	from
 	 movie AS mo
 	join
@@ -92,6 +94,7 @@ $sql ="
 	select
 	  mm.title
 	, count(mo.movie_id)
+	, mo.movie_id
 	from
 	 movie AS mo
 	join
@@ -113,8 +116,11 @@ echo "</tr>";
 
 while( $row = mysql_fetch_array( $res ) ){
 
+//movie_idの取得
+$mov_id = $row["movie_id"];
+
 echo "<tr>";
-echo "<td>".$row[0]."</td>";
+echo "<td><a href='select.php?movie=".$mov_id."'>".$row[0]."</a></td>";
 echo "<td>".$row[1]."</td>";
 echo "</tr>";
 }
