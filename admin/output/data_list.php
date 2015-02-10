@@ -388,10 +388,10 @@ echo "</table>";
             
 			<div class="I_Bottom">
 				<?
-				//SQL 鑑賞時間帯を出力
 				$sql = "
 				SELECT sei , count(*)
 				FROM customer_m
+				WHERE sei = '男' or sei = '女'
 				GROUP BY sei
 				ORDER BY count(*) DESC";
 				

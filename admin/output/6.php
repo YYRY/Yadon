@@ -23,6 +23,7 @@ mysql_select_db( "iw32" , $con );
 $sql = "
 SELECT count(*)
 FROM customer_m
+WHERE sei = '男' or sei = '女'
 GROUP BY sei
 ORDER BY count(*) DESC";
 

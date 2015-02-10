@@ -14,6 +14,7 @@
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
 	if (isset($_POST["submit_add"])){
 		$new_name    = htmlspecialchars($_POST["name"], ENT_QUOTES);
+		$new_sei    = htmlspecialchars($_POST["sei"], ENT_QUOTES);
 		$new_pass    = htmlspecialchars($_POST["pass"], ENT_QUOTES);
 		$new_kakunin = htmlspecialchars($_POST["kakunin"], ENT_QUOTES);
 		$new_email   = htmlspecialchars($_POST["email"], ENT_QUOTES);
@@ -26,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 			    $error = "メールアドレスが正しくありません。";
 			}
 		}
-		$sql = "UPDATE customer_m SET customer_name = '$new_name' ,pass = '$new_pass' ,mail = '$new_email' WHERE customer_id = '$customer_id';";
+		$sql = "UPDATE customer_m SET customer_name = '$new_name' ,pass = '$new_pass' ,mail = '$new_email' , sei = '$new_sei' WHERE customer_id = '$customer_id';";
 	}
 
 	if ($error==""){
@@ -61,6 +62,10 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 					<span class="supplement">例） HAL　東京</span></td>
 				</tr>
 				<tr>
+					<th><label for="name">性別</label></th>
+					<td><input type="radio" name="sei" value="男" />男<input type="radio" name="sei" value="女" />女<br></td>
+				</tr>
+				<tr>
 					<th><label for="pass">パスワード</label></th>
 					<td><input type="password" name="pass" id="pass"></td>
 				</tr>
@@ -75,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 				</tr>
 			</tbody>
 		</table>
-		<p class="button"><input type="submit" name="submit_add" value="入力内容の確認画面へ"></p>
+		<p class="button"><input type="submit" name="submit_add" value="変更"></p>
 	</form>
 <?php
 	include ('../../footer.php');
