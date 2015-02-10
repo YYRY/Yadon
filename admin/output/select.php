@@ -80,7 +80,7 @@ while( $row = mysql_fetch_array( $res ) ){
 echo "</table>";
 echo "男性：".$count1."件<br />";
 echo "女性：".$count2."件<br />";
-echo "全".$all_count."件";
+echo "全".$all_count."件<br />";
 ?>
 
 <!DOCTYPE html>
@@ -100,7 +100,9 @@ echo "全".$all_count."件";
 <body>
 
 
-
+<a href="pdf2.php?movie=<?= $movie_id ?>">
+	<img src="../img/output/button.png" alt="PDF化">
+</a>
 
 
 </body>
