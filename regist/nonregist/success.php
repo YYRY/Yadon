@@ -61,7 +61,7 @@ $res = mysql_query($sql,$con);
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>映画予約会員登録完了</title>
+	<title>会員登録完了</title>
 	<meta charset="utf-8">
 	<meta name="keywords" content="HALシネマ東京"><!-- ＳＥＯ対策　-->
 	<meta name="description" content="HALシネマのサイトです">
@@ -97,9 +97,8 @@ $res = mysql_query($sql,$con);
 <div id="kannryou">
     <h1>予約完了しました</h1>
     <p>
-        会員登録と映画予約が完了しました。
-        登録されたアドレス宛に映画予約の際に使用できるQRコードが送られました。<br />
-        映画鑑賞の際にチケット代わりになります。
+        会員登録と映画予約が完了しました。<br />
+		名前等の情報はマイページから設定できます。
     </p>
 </div>
 
