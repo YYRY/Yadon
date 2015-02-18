@@ -4,10 +4,6 @@
 #main{
 	/*background-color:gray;*/
 	width:960px;
-	background-color:white;
-	box-shadow:0 0 5px #fff, 0 0 5px #ccc, 0 0 1px #aaa;
-    -webkit-box-shadow:0 0 5px #fff, 0 0 5px #ccc, 0 0 1px #aaa;
-    -moz-box-shadow:0 0 5px #fff, 0 0 5px #ccc, 0 0 1px #aaa;
 }
 
 #main_img{
@@ -58,9 +54,11 @@ strong{
 	float:left;
 	margin:5px 0px 5px 0px;
 	width:295px;
-	background-color:#f0f8ff;
 }
 
+#rightcolumn img{
+	padding-top:10px;
+}
 
 .box1_img{
 	float:left;
@@ -90,8 +88,12 @@ strong{
     margin-left: 5px;
 }
 .right_waku{
-    margin-left: 5px;
-    line-height: 17px;
+    background-color:#c0c0c0;
+    margin-bottom:5px;
+}
+
+#rightcolumn img{
+	padding-top:5px;
 }
 
 /*テーブル*/
