@@ -54,7 +54,7 @@ DELETE FROM `iw32`.`movie` WHERE `movie`.`customer_id` = '$c_id' AND `movie`.`mo
 
 <script type="text/javascript">
 $(document).ready(function(){
-     $('#qr').qrcode({		//demo2:幅や高さを指定する場合
+     $('#qr').qrcode({			//demo2:幅や高さを指定する場合
          width:100,				//QRコードの幅
          height:100,			//QRコードの高さ
          text:'http://hal.ovdesign.jp/md31/fujita/iw32/qr.php?c_id=<?= $c_id ?>'			//QRコードの内容
@@ -109,6 +109,8 @@ if(mb_send_mail($to,$subject,$body,$header)){
 予約完了メールと予約確認用メールを送信しました。大切に保管してください。<br />
 以下のQRコード画像を鑑賞日に映画館の従業員に見せることで、チケットの変わりにすることが出来ます。<br />
 画像を見せることが出来ない場合でも、メールアドレスで入場することが出来ます。<br /><br />
+
+<a href="../admin/qr/qr.php?c_id=<?= $c_id ?>">テスト用</a>
 
 <div id="QRarea">
 	<div id="qr"></div>

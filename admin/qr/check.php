@@ -23,6 +23,7 @@ mysql_select_db( "iw32" , $con );
 
 
 $flg1 = false;
+$flg2 = false;
 
 
 //従業員情報チェック
@@ -35,10 +36,8 @@ FROM
 ";
 $res = mysql_query( $sql , $con );
 while( $row = mysql_fetch_array( $res ) ){
-	if($row[0] != $e_id){
-		if($row[1] != $e_pass){
-			$flg1 = true;
-		}
+	if($row[0] == $e_id && $row[1] == $e_pass){
+		$flg1 = true;
 	}
 }
 
@@ -52,15 +51,13 @@ FROM
 ";
 $res = mysql_query( $sql , $con );
 while( $row = mysql_fetch_array( $res ) ){
-	if($row[0] != $c_id){
-		if($row[1] != $c_pass){
-			$flg1 = true;
-		}
+	if($row[0] == $c_id && $row[1] == $c_pass){
+		$flg2 = true;
 	}
 }
 
 //どちらかでも合致しなかったら
-if($flg1 == false){
+if($flg1 == false || $flg2 == false){
 	header("location:qr.php?c_id=".$c_id."");
 	exit;
 }
@@ -127,6 +124,11 @@ while( $row = mysql_fetch_array( $res ) ){
 	<input type='hidden' name='date' value='".$month.$day."'>
 	<input type='hidden' name='retu' value='".$row[3]."'>
 	<input type='hidden' name='x' value='".$row[4]."'>
+
+	<input type='hidden' name='c_pass' value='".$c_pass."'>
+	<input type='hidden' name='e_id' value='".$e_id."'>
+	<input type='hidden' name='e_pass' value='".$e_pass."'>
+
 	<input type='submit' value='決定'>
 	</form>
 	";
@@ -134,6 +136,8 @@ while( $row = mysql_fetch_array( $res ) ){
 }
 
 ?>
+
+<a href="qr.php?c_id=<?= $c_id ?>">ログイン画面に戻る</a>
 
 </dody>
 </html>

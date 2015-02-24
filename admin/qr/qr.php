@@ -25,7 +25,7 @@ $flg1 = false;
 //QR用顧客IDと映画ID取得
 if(isset( $_GET["c_id"] ) ){
 
-	$c_id = $_GET["c_id"];	
+	$c_id = $_GET["c_id"];
 
 	$sql = "
 	SELECT customer_name
