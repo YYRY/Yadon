@@ -4,16 +4,15 @@
 #main{
 	/*background-color:gray;*/
 	width:960px;
-	background-color:white;
-	box-shadow:0 0 5px #fff, 0 0 5px #ccc, 0 0 1px #aaa;
-    -webkit-box-shadow:0 0 5px #fff, 0 0 5px #ccc, 0 0 1px #aaa;
-    -moz-box-shadow:0 0 5px #fff, 0 0 5px #ccc, 0 0 1px #aaa;
 }
 
 #main_img{
 	margin:5px 5px 5px 5px;
 	float:left;
-	width:310px;
+	width:320px;
+}
+#main_img img{
+    width: 100%;
 }
 
 h1{
@@ -21,14 +20,25 @@ h1{
 	font-size:24px;
 	color:#000;
 }
-
+li{
+    list-style: none;
+}
+td{
+    margin-left: 5px;
+}
+strong{
+    line-height: 30px;
+}
 #main_text{
-	margin:5px; 5px; 5px; 5px;
-	float:left;
-	width:630px;
-	height:150px;
-	font-size:14px;
-	line-height:1.2em;
+    margin: 25px 5px 5px 5px;
+    float: left;
+    width: 600px;
+    font-size: 13px;
+    line-height: 1.2em;
+    background: #7d7d7d;
+    color: #fff;
+    padding: 10px;
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
 }
 
 #leftcolumn{
@@ -44,9 +54,11 @@ h1{
 	float:left;
 	margin:5px 0px 5px 0px;
 	width:295px;
-	background-color:#f0f8ff;
 }
 
+#rightcolumn img{
+	padding-top:10px;
+}
 
 .box1_img{
 	float:left;
@@ -54,16 +66,34 @@ h1{
 	width:200px;
 }
 
-.box1_text{
-	float:left;
-	height:110px;
-	margin:5px 0px;
-	padding:5px 5px 5px 5px;
-	width:425px;
-	line-height:1.2em;
-	border: 1px solid gray;
-	background-color:gray;
-	font-size:12px;
+.box1_text {
+    float: left;
+    margin: 5px 0px;
+    padding: 5px 5px 5px 5px;
+    width: 425px;
+    line-height: 1.2em;
+    border: 1px solid gray;
+    background-color: rgb(131, 131, 131);
+    font-size: 12px;
+    color: #fff;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0);
+}
+.box2_text{
+    width: 200px;
+    background: #7d7d7d;
+    text-align: center;
+    height: 40px;
+    line-height: 20px;
+    color: #fff;
+    margin-left: 5px;
+}
+.right_waku{
+    background-color:#c0c0c0;
+    margin-bottom:5px;
+}
+
+#rightcolumn img{
+	padding-top:5px;
 }
 
 /*テーブル*/
@@ -208,7 +238,14 @@ h2{
 
 
 
-#yoyakusuru{
-	position:relative;
-	left:350px;
+#yoyakusuru {
+position: relative;
+left: 347px;
+width: 298px;
+background-color: #7B7B7B;
+height: 25px;
+line-height: 25px;
+padding-left: 5px;
+color: #fff;
+text-align: center;
 }

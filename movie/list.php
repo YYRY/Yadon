@@ -47,7 +47,7 @@ if($month1 < 10){
 				echo "<div class=\"box1\">";
 					echo "<table>";
 						echo "<tr>";
-						echo "<td style=\"width:5px; height: 30px; background-color:#0000ff;\"></td>";
+						echo "<td style=\"width:5px; height: 30px; background-color:#fff; margin-left:5px;\"></td>";
 						echo "<td><strong>".$row["title"]."</strong></td>";
 						echo "</tr>";
 					echo "</table>";
@@ -110,14 +110,16 @@ if($month1 < 10){
 				<li>00/00：更新しました</li>
 				</ul>
 			</div>
+			</div>				
 			</div>
-							
+
+			<iframe width="295" height="215" src="https://www.youtube.com/embed/NOHqxUpXxDQ" frameborder="0" allowfullscreen></iframe>
+			<div id="right_img">
+			<img src="../img/movie/banner.jpg" width="295px">
+			<img src="../img/movie/banner2.jpg" width="295px">
+			<img src="../img/movie/banner3.jpg" width="295px">
 			</div>
-			<img src="../img/movie/koukousei_r.jpg" width="295px">
-			<img src="../img/movie/koukousei_r.jpg" width="295px">
-			<img src="../img/movie/koukousei_r.jpg" width="295px">
-			<img src="../img/movie/koukousei_r.jpg" width="295px">
-			</div>
+			
 		
 		</div><!-- rightcolumn fin-->
 		<div class="clear"></div>
