@@ -7,6 +7,10 @@
 	margin:30px 0;
 }
 
+h1{
+	margin-top:50px;
+}
+
 
 .area{
 	width:200px;
@@ -21,6 +25,10 @@
 	clear:both;
 }
 
+
+table{
+	border:1px solid #666;
+}
 
 td{
 	width:30px;
@@ -43,5 +51,6 @@ td{
 /*席がない場所*/
 .null{
 	background:#fff;
+	border:1px solid #eee;
 }
 
