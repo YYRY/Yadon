@@ -1,0 +1,21 @@
+@charset "utf-8";
+html {
+	font-family: Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+	font-size: 16px;
+	line-height: 1.8;
+	background-color: #3D3D3D;
+	/*background-image: url("../img/background.png"), url("../img/background2.png"), url("../img/background3.png");*/
+	background-repeat: repeat, no-repeat, no-repeat;
+	background-position: top left, bottom right, bottom left;
+/*	background-color: #eeeeee;*/
+	overflow-y:scroll;
+}
+body {
+	max-width: 960px;
+	margin: 0 auto;
+	color: #ddd;
+}
+
+a{
+	color:#fff;
+}

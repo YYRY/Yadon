@@ -76,6 +76,8 @@ while( $row = mysql_fetch_array( $res ) ){
 <head>
 <title>予約確認</title>
 <meta charset="utf8">
+<link href="../css/admin/comp.css" rel="stylesheet" type="text/css">
+<link href="../css/qr/qr.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 

@@ -120,7 +120,7 @@ while( $row = mysql_fetch_array( $res ) ){
 $mov_id = $row["movie_id"];
 
 echo "<tr>";
-echo "<td><a href='select.php?movie=".$mov_id."'>".$row[0]."</a></td>";
+echo "<td><a href='pdf2.php?movie=".$mov_id."'>".$row[0]."</a></td>";
 echo "<td>".$row[1]."</td>";
 echo "</tr>";
 }
@@ -424,7 +424,7 @@ echo "</table>";
 		<a href="pdf.php">
      		<img src="../img/output/button.png" alt="PDF化">
 		</a>
-
+		<a href="../index.php">戻る</a>
 
 	</article>
     

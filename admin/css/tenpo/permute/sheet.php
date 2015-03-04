@@ -223,9 +223,8 @@ if($se != null){
 			}
 			echo "</tr></table>";
 		}
-		echo "<a href='../../index.php'>戻る</a>";
 		?>
-		<a href="../../index.php"></a>
+
     </article>
 
 </body>

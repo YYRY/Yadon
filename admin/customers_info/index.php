@@ -99,6 +99,7 @@ EOM;
 	}		
 ?>
 		</table>
+		<a href='../index.php'>戻る</a>
 		</form>
 	</section>
 <script type="text/javascript">

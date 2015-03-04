@@ -79,16 +79,16 @@ while( $row = mysql_fetch_array( $res ) ){
 			</tr>
 
 			<tr>
-				<td rowspan="8"><a href="permute/sheet.php">HALシネマ東京</a></td>
+				<td rowspan="8"><a href="permute/info.php?name=HALシネマ東京">HALシネマ東京</a></td>
 				<?php
 					//DBの1行目抽出
-					echo "<td class='screen'><a href='permute/sheet.php'>" , $s[0] , "</a></td>";
+					echo "<td class='screen'><a href='permute/screen.php?screen=$s[0]'>" , $s[0] , "</a></td>";
 					echo "<td class='seat'>" , $x[0] , "×" , $y[0] , "</td></tr>";
 
 					//DBの2行目以降抽出
 					$count2 = 1;
 					for( ; $count2<$count1 ; $count2++){
-						echo "<tr><td class='screen'><a href='permute/sheet.php'>" , $s[$count2] , "</a></td>";
+						echo "<tr><td class='screen'><a href='permute/screen.php?screen=$s[$count2]'>" , $s[$count2] , "</a></td>";
 						echo "<td class='seat'>" , $x[$count2] , "×" , $y[$count2] , "</td></tr>";
 					}
 				?>
@@ -96,16 +96,16 @@ while( $row = mysql_fetch_array( $res ) ){
 
 
 			<tr>
-				<td rowspan="8"><a href="permute/sheet.php">HALシネマ名古屋</a></td>
+				<td rowspan="8"><a href="permute/info.php?name=HALシネマ名古屋">HALシネマ名古屋</a></td>
 				<?php
 					//DBの1行目抽出
-					echo "<td class='screen'><a href='permute/sheet.php'>" , $s[0] , "</a></td>";
+					echo "<td class='screen'><a href='permute/screen.php?screen=$s[0]'>" , $s[0] , "</a></td>";
 					echo "<td class='seat'>" , $x[0] , "×" , $y[0] , "</td></tr>";
 
 					//DBの2行目以降抽出
 					$count2 = 1;
 					for( ; $count2<$count1 ; $count2++){
-						echo "<tr><td class='screen'><a href='permute/sheet.php'>" , $s[$count2] , "</a></td>";
+						echo "<tr><td class='screen'><a href='permute/screen.php?screen=$s[$count2]'>" , $s[$count2] , "</a></td>";
 						echo "<td class='seat'>" , $x[$count2] , "×" , $y[$count2] , "</td></tr>";
 					}
 				?>
@@ -114,22 +114,31 @@ while( $row = mysql_fetch_array( $res ) ){
 
 
 			<tr>
-				<td rowspan="8"><a href="permute/sheet.php">HALシネマ大阪</a></td>
+				<td rowspan="8"><a href="permute/info.php?name=HALシネマ大阪">HALシネマ大阪</a></td>
 				<?php
 					//DBの1行目抽出
-					echo "<td class='screen'><a href='permute/sheet.php'>" , $s[0] , "</a></td>";
+					echo "<td class='screen'><a href='permute/screen.php?screen=$s[0]'>" , $s[0] , "</a></td>";
 					echo "<td class='seat'>" , $x[0] , "×" , $y[0] , "</td></tr>";
 
 					//DBの2行目以降抽出
 					$count2 = 1;
 					for( ; $count2<$count1 ; $count2++){
-						echo "<tr><td class='screen'><a href='permute/sheet.php'>" , $s[$count2] , "</a></td>";
+						echo "<tr><td class='screen'><a href='permute/screen.php?screen=$s[$count2]'>" , $s[$count2] , "</a></td>";
 						echo "<td class='seat'>" , $x[$count2] , "×" , $y[$count2] , "</td></tr>";
 					}
 				?>
 			</tr>
+
 		</table>
-		<a href='../index.php'>戻る</a>
+
+		<a href="premute/info.php"><img src="../img/tenpo/button1.png" alt="映画館追加" id="button1"></a>
+		<a href="premute/screen.php"><img src="../img/tenpo/button2.png" alt="スクリーン追加"></a>
+
 	</article>
+
+	<footer>
+		<p><small>Copyright IH12B334	kaito shidara ALLRIGHTS RESERVED.</small>
+		</p>
+	</footer>
 </body>
 </html>

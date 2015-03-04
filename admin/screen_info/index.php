@@ -130,6 +130,7 @@ EOM;
 					<td><input type="submit" name="" value="送信" class='upd'></td>
 					<td>　</td>
 			</table>
+			<a href='../index.php'>戻る</a>
 		</form>
 
 	</section>

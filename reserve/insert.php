@@ -51,7 +51,11 @@ mysql_select_db( "iw32" , $con );
 <body>
 
 <div id="yoyaku">
-<a href="../movie/detail.php?day=<?= $day ?>&time=<?= $time ?>&mov=<?= $mov ?>">座席選択に戻る</a>
+<div id="top_text">
+<h2>STEP.座席の確認を行ってください。</h2>
+<p>座席の確認を行い次のステップへ進んでください<p>
+</div>
+<hr />
 <?php
 //予約席
 $sql="
@@ -82,10 +86,13 @@ echo "<li class='migi'>合計金額:".$count*1800 ."円</li><br />";
 <form action="success.php" method="post">
 	<input type="hidden" name="c_id" value="<?= $c_id ?>">
 	<input type="hidden" name="mov" value="<?= $mov ?>">
-    <input type="submit" value="以上の席で予約する">
+    <input type="image" src="../img/reserve/btn01.jpg" width="250px">
 </form>
-
-
+<hr />
+<div id="under_link">
+<a href="../movie/detail.php?day=<?= $day ?>&time=<?= $time ?>&mov=<?= $mov ?>"><<座席選択に戻る</a>
+</div>
+</div>
 </div>
 
 

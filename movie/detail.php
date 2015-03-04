@@ -112,47 +112,53 @@ $("td").not(".none").click(function(){
 
 	
 	//座席の色を戻す
-	if(this_td.css('z-index') == '101'){
+//	if(this_td.css('z-index') == '101'){
+	if(this_td.css('background-color') == 'rgb(252, 157, 80)'){
 		//普通席
 		$(this).css({
 			"background":"#ddd",
 			"z-index":"100"
 		});
 	}
-	else if(this_td.css('z-index') == '103'){
+//	else if(this_td.css('z-index') == '103'){
+	else if(this_td.css('background-color') == 'rgb(49, 147, 171)'){
 		//車椅子
 		$(this).css({
-			"background":"#0CF",
+			"background":"#00ccff",
 			"z-index":"102"
 		});
 	}
-	else if(this_td.css('z-index') == '105'){
+//	else if(this_td.css('z-index') == '105'){
+	else if(this_td.css('background-color') == 'rgb(36, 171, 61)'){
 		//ペアシート
 		$(this).css({
 			"background":"#52e26d",
 			"z-index":"104"
 		});
 	}
-	
+
 	else{
-		if(this_td.css('z-index') == '100'){
-		//普通席クリック
-		$(this).css({
-			"background":"#fc9d50",
-			"z-index":"101"
-		});
-		}
-		//車椅子席クリック
-		else if(this_td.css('z-index') == '102'){
+//		if(this_td.css('z-index') == '100'){
+		if(this_td.css('background-color') == 'rgb(221, 221, 221)'){
+			//普通席クリック
 			$(this).css({
 				"background":"#fc9d50",
+				"z-index":"101"
+			});
+		}
+		//車椅子席クリック
+//		else if(this_td.css('z-index') == '102'){
+		else if(this_td.css('background-color') == 'rgb(0, 204, 255)'){
+			$(this).css({
+				"background":"#3193ab",
 				"z-index":"103"
 			});
 		}
 		//ペアシートクリック
-		else if(this_td.css('z-index') == '104'){
+//		else if(this_td.css('z-index') == '104'){
+		else if(this_td.css('background-color') == 'rgb(82, 226, 109)'){
 			$(this).css({
-				"background":"#fc9d50",
+				"background":"#24ab3d",
 				"z-index":"105"
 			});
 		}
@@ -224,15 +230,6 @@ $("td").not(".none").click(function(){
 		$i++;
 	}
 
-/*
-	$movie_id = "1";
-	if(isset($_GET["movie_id"])){
-		$movie_id = htmlspecialchars($_GET["movie_id"], ENT_QUOTES);
-	}
-	if (!preg_match("/^[0-9]*$/", $movie_id)){
-			header("Location:../index.php");
-	}
-*/
 	$host_name = "localhost";
 	$dbms_user = "root";
 	$dbms_pass = "";
@@ -274,12 +271,11 @@ $("td").not(".none").click(function(){
 	<div class="clear"></div>
 
 	<div class="full_content">
-   		<div class="menu active"></div>
+   		<div class="menu active"><a href="list.php" id="back">戻る</a></div>
  	  	<div class="content">
    			<!--<div class="drag"><img src="../img/movie/men.png"></div>
 			<div class="drag"><img src="../img/movie/girl.png"></div>
 			<div class="drag"><img src="../img/movie/kuruma.png"></div>-->
-            
 
         	<table id="sheet">
 	        	<tr>

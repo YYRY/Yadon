@@ -3,8 +3,9 @@
 	width: 900px;
 	margin: 0 auto;
 	padding: 15px;
-	background-color: #fff;
-	border-radius: 10px;
+	background-color:#5f5f5f;
+	color:#ddd;
+	text-align:center;
 }
 #yoyaku li{
 	list-style: none;
@@ -13,7 +14,17 @@
 	margin-left: 10px;
 }
 .migi{
-	float: left;
+	text-align:center;
+}
+
+#top_text{
+	text-align:left;
+	line-height:1.5em;
+}
+#under_link{
+	margin-top:10px;
+	font-size:12px;
+	text-align:left;
 }
 form{
 	clear: both;

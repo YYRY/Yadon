@@ -111,13 +111,29 @@ include "../header.php";
 			echo "入力内要が誤っています";
 		}
 		?></p>
-		<label><span class="F_title">メールアドレス</span>
-		<input type="text" name="mail" class="F_form"></label>
-
-		<label><span class="F_title">パスワード</span>
-		<input type="password" name="pass" class="F_form"></label>
-
-		<input type="image" src="../img/regist/nonregist/kakuninn1.png" alt="送信" id="button">
+		<table border="0" class="login-table">
+		<tr>
+			<th>
+				<label><span class="F_title">メールアドレス</span>
+			</th>
+			<td>
+				<input type="text" name="mail" class="F_form"></label>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<label><span class="F_title">パスワード</span>
+			</th>
+			<td>
+				<input type="password" name="pass" class="F_form"></label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<input type="image" src="../img/regist/nonregist/kakuninn1.png" alt="送信" id="button">
+		</td>
+		</tr>
+	</table>
     </form>
 
 </article>

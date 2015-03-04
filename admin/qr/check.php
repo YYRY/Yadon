@@ -70,6 +70,8 @@ if($flg1 == false || $flg2 == false){
 <head>
 <title>予約最終確認</title>
 <meta charset="utf8">
+<link href="../css/qr/qr.css" rel="stylesheet" type="text/css">
+<link href="../css/admin/check.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -116,8 +118,10 @@ while( $row = mysql_fetch_array( $res ) ){
 	}
 
 	$day = substr($row[5], -2, 2);
-
-	echo $row[2]."　　".$month."月".$day."日　".$row[3]."列　".$row[4]."番
+	echo "<table boder='0'>";
+	echo "<tr>";
+	echo "<th>";
+	echo $row[2]."　　".$month."月".$day."日　".$row[3]."列　".$row[4]."番</th>
 	<form action='comp.php' method='post'>
 	<input type='hidden' name='c_id' value='".$c_id."'>
 	<input type='hidden' name='m_id' value='".$row[1]."'>
@@ -128,8 +132,7 @@ while( $row = mysql_fetch_array( $res ) ){
 	<input type='hidden' name='c_pass' value='".$c_pass."'>
 	<input type='hidden' name='e_id' value='".$e_id."'>
 	<input type='hidden' name='e_pass' value='".$e_pass."'>
-
-	<input type='submit' value='決定'>
+	<td><input type='submit' value='決定'></td></tr></table>
 	</form>
 	";
 	$count++;
